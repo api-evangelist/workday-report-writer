@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: Workday Report-as-a-Service (RaaS) REST API
+  description: >-
+    REST API that exposes custom Workday reports as web service endpoints.
+    Advanced-type reports enabled as web services can be consumed via RESTful
+    endpoints, returning data in JSON, CSV, XML, and other formats. Supports
+    query parameters for report prompts and filtering, enabling programmatic
+    data extraction from Workday HCM and Financial Management modules.
+  version: v45.2
+  contact:
+    name: Workday Support
+    url: https://www.workday.com/en-us/company/contact-us.html
+  termsOfService: https://www.workday.com/en-us/legal.html
+externalDocs:
+  description: Workday API Documentation
+  url: https://community.workday.com/api
+servers:
+  - url: https://{hostname}/ccx/service/customreport2/{tenant}
+    description: Workday RaaS Production
+    variables:
+      hostname:
+        description: >-
+          Workday data center hostname, varies by tenant deployment
+          (e.g., wd2-impl-services1.workday.com)
+        default: wd2-impl-services1.workday.com
+      tenant:
+        description: Workday tenant name
+        default: your-tenant
+tags:
+  - name: Custom Reports
+    description: >-
+      Execute custom reports exposed as web service endpoints, returning data
+      in multiple formats including JSON, CSV, and XML
+  - name: Report Metadata
+    description: >-
+      Retrieve metadata about available report-as-a-service endpoints and
+      their prompt configurations
+security:
+  - basicAuth: []
+paths:
+  /{reportOwner}/{reportName}:
+    get:
+      operationId: executeCustomReportAsService
+      summary: Execute a custom report via RaaS
+      description: >-
+        Executes a custom Workday report that has been enabled as a web
+        service and returns the report data in the specified format. Report
+        prompts can be passed as query parameters to filter results. Only
+        Advanced-type reports with the Enable As Web Service option selected
+        are accessible through this endpoint.
+      tags:
+        - Custom Reports
+      parameters:
+        - $ref: '#/components/parameters/reportOwner'
+        - $ref: '#/components/parameters/reportName'
+        - name: format
+          in: query
+          description: >-
+            Output format for the report data. Determines the content type
+            of the response.
+          schema:
+            type: string
+            enum:
+              - json
+              - csv
+              - simplexml
+              - xml
+              - rss
+              - gdata
+            default: json
+        - name: Worker_Type!WID
+          in: query
+          description: >-
+            Example prompt parameter for filtering by worker type using the
+            Workday ID (WID). Actual prompt parameters vary per report
+            definition.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Report data retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RaaSReportResponse'
+            text/csv:
+              schema:
+                type: string
+                description: Report data in CSV format
+            application/xml:
+              schema:
+                type: string
+                description: Report data in XML format
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '408':
+          description: >-
+            Request timed out. Workday enforces a 30-minute timeout for
+            report execution. Consider reducing the data set size or using
+            prompt parameters to filter results.
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authentication using an Integration System User (ISU)
+        username and password configured in Workday
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        OAuth 2.0 bearer token obtained from Workday token endpoint
+  parameters:
+    reportOwner:
+      name: reportOwner
+      in: path
+      required: true
+      description: >-
+        Username of the Integration System User (ISU) that owns the report
+      schema:
+        type: string
+    reportName:
+      name: reportName
+      in: path
+      required: true
+      description: >-
+        Name of the custom report as defined in Workday Report Writer. Must
+        be an Advanced-type report enabled as a web service.
+      schema:
+        type: string
+  responses:
+    BadRequest:
+      description: >-
+        The request was malformed, contained invalid prompt values, or
+        referenced an invalid report
+    Unauthorized:
+      description: >-
+        Authentication credentials are missing, invalid, or the Integration
+        System User lacks the required security group permissions
+    NotFound:
+      description: >-
+        The specified report was not found or has not been enabled as a
+        web service
+  schemas:
+    RaaSReportResponse:
+      type: object
+      description: >-
+        JSON response wrapper for a RaaS report execution containing the
+        report data and metadata
+      properties:
+        Report_Entry:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+          description: >-
+            Array of report rows, where each object represents a row with
+            property names matching the report column XML aliases
+    RaaSReportRow:
+      type: object
+      description: >-
+        A single row from a RaaS report result. Properties correspond to
+        the report columns defined in Report Writer.
+      additionalProperties: true
+      properties:
+        Worker:
+          type: string
+          description: >-
+            Example field representing a worker name. Actual fields depend
+            on the specific report definition.
+        Employee_ID:
+          type: string
+          description: >-
+            Example field representing an employee identifier. Actual fields
+            depend on the specific report definition.

@@ -1,0 +1,757 @@
+openapi: 3.1.0
+info:
+  title: Workday Prism Analytics API
+  description: >-
+    REST API for working with Workday Prism Analytics tables, datasets, and data
+    change tasks. Enables programmatic loading of external data into Prism
+    Analytics for advanced reporting and analytics that combines internal Workday
+    data with external sources. Supports creating tables with schema definitions,
+    uploading compressed data files via buckets, and executing data change tasks
+    to apply inserts, updates, upserts, and deletes.
+  version: v3
+  contact:
+    name: Workday Support
+    url: https://www.workday.com/en-us/company/contact-us.html
+  termsOfService: https://www.workday.com/en-us/legal.html
+externalDocs:
+  description: Workday Prism Analytics API Documentation
+  url: https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html
+servers:
+  - url: https://{hostname}/api/prismAnalytics/v3/{tenant}
+    description: Workday Prism Analytics Production
+    variables:
+      hostname:
+        description: >-
+          Workday data center hostname, varies by tenant deployment
+        default: wd2-impl-services1.workday.com
+      tenant:
+        description: Workday tenant name
+        default: your-tenant
+tags:
+  - name: Tables
+    description: >-
+      Create and manage Prism Analytics tables that define the schema for
+      external data loaded into Workday for reporting and analytics
+  - name: Datasets
+    description: >-
+      Manage Prism Analytics datasets, which are read-only data collections
+      used in Prism reports and dashboards
+  - name: Buckets
+    description: >-
+      Manage file upload buckets for staging compressed data files before
+      executing data change tasks against tables
+  - name: Data Change Tasks
+    description: >-
+      Execute data change tasks to load, update, or delete data in Prism
+      Analytics tables using files uploaded to buckets
+security:
+  - bearerAuth: []
+paths:
+  /tables:
+    get:
+      operationId: listTables
+      summary: List Prism Analytics tables
+      description: >-
+        Retrieve a collection of Prism Analytics tables available in the tenant.
+        Tables define the schema for external data loaded into Workday.
+      tags:
+        - Tables
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - name: name
+          in: query
+          description: Filter tables by name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tables retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Total number of tables
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Table'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createTable
+      summary: Create a Prism Analytics table
+      description: >-
+        Create a new Prism Analytics table with a defined schema. The table
+        schema specifies the fields, data types, and constraints for the
+        external data that will be loaded.
+      tags:
+        - Tables
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableCreateRequest'
+      responses:
+        '201':
+          description: Table created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /tables/{tableId}:
+    get:
+      operationId: getTable
+      summary: Get a Prism Analytics table
+      description: >-
+        Retrieve details of a specific Prism Analytics table including its
+        schema definition, field mappings, and current state.
+      tags:
+        - Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      responses:
+        '200':
+          description: Table details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateTable
+      summary: Update a Prism Analytics table
+      description: >-
+        Update the display name or description of an existing Prism Analytics
+        table. Schema changes require creating a new table version.
+      tags:
+        - Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableUpdateRequest'
+      responses:
+        '200':
+          description: Table updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /datasets:
+    get:
+      operationId: listDatasets
+      summary: List Prism Analytics datasets
+      description: >-
+        Retrieve a collection of Prism Analytics datasets. Datasets are
+        read-only data collections derived from tables or Workday data
+        sources used in Prism reports and dashboards.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - name: name
+          in: query
+          description: Filter datasets by name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Datasets retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Total number of datasets
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Dataset'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Get a Prism Analytics dataset
+      description: >-
+        Retrieve details of a specific Prism Analytics dataset including its
+        schema, row count, and last refresh timestamp.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Dataset details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /buckets:
+    get:
+      operationId: listBuckets
+      summary: List file upload buckets
+      description: >-
+        Retrieve a collection of file upload buckets. Buckets are used to
+        stage compressed data files before executing data change tasks.
+      tags:
+        - Buckets
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Buckets retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Total number of buckets
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bucket'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createBucket
+      summary: Create a file upload bucket
+      description: >-
+        Create a new bucket for uploading data files to a specific Prism
+        Analytics table. The bucket must be associated with a table and
+        specifies the data change operation type.
+      tags:
+        - Buckets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BucketCreateRequest'
+      responses:
+        '201':
+          description: Bucket created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /buckets/{bucketId}:
+    get:
+      operationId: getBucket
+      summary: Get a file upload bucket
+      description: >-
+        Retrieve details of a specific bucket including its state, associated
+        table, and uploaded file count.
+      tags:
+        - Buckets
+      parameters:
+        - $ref: '#/components/parameters/bucketId'
+      responses:
+        '200':
+          description: Bucket details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /buckets/{bucketId}/files:
+    post:
+      operationId: uploadFileToBucket
+      summary: Upload a file to a bucket
+      description: >-
+        Upload a single gzip-compressed data file to a bucket. Files must be
+        delimited (CSV) and gzip compressed. The bucket state must be New.
+        Multiple files can be uploaded by making multiple POST requests
+        sequentially or concurrently. Maximum upload size for a single
+        compressed file is 256 MB.
+      tags:
+        - Buckets
+      parameters:
+        - $ref: '#/components/parameters/bucketId'
+      requestBody:
+        required: true
+        content:
+          application/gzip:
+            schema:
+              type: string
+              format: binary
+              description: >-
+                Gzip-compressed delimited data file (CSV format)
+      responses:
+        '200':
+          description: File uploaded successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /buckets/{bucketId}/complete:
+    post:
+      operationId: completeBucket
+      summary: Complete a bucket and trigger data change task
+      description: >-
+        Mark a bucket as complete after all files have been uploaded. This
+        triggers the associated data change task to process the uploaded
+        files and apply the data changes to the target Prism Analytics table.
+      tags:
+        - Buckets
+      parameters:
+        - $ref: '#/components/parameters/bucketId'
+      responses:
+        '200':
+          description: Bucket completed and data change task initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /dataChangeTasks:
+    get:
+      operationId: listDataChangeTasks
+      summary: List data change tasks
+      description: >-
+        Retrieve a collection of data change tasks. Data change tasks represent
+        operations that modify data in Prism Analytics tables, including inserts,
+        updates, upserts, and deletes.
+      tags:
+        - Data Change Tasks
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Data change tasks retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Total number of data change tasks
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataChangeTask'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /dataChangeTasks/{taskId}:
+    get:
+      operationId: getDataChangeTask
+      summary: Get a data change task
+      description: >-
+        Retrieve details of a specific data change task including its status,
+        operation type, row counts, and any error information.
+      tags:
+        - Data Change Tasks
+      parameters:
+        - $ref: '#/components/parameters/taskId'
+      responses:
+        '200':
+          description: Data change task details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataChangeTask'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        OAuth 2.0 bearer token obtained from Workday token endpoint.
+        Requires the Prism Analytics scope.
+  parameters:
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: Unique identifier (WID) of the Prism Analytics table
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: Unique identifier (WID) of the Prism Analytics dataset
+      schema:
+        type: string
+    bucketId:
+      name: bucketId
+      in: path
+      required: true
+      description: Unique identifier of the file upload bucket
+      schema:
+        type: string
+    taskId:
+      name: taskId
+      in: path
+      required: true
+      description: Unique identifier of the data change task
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+  responses:
+    BadRequest:
+      description: >-
+        The request was malformed or contained invalid data
+    Unauthorized:
+      description: >-
+        Authentication credentials are missing or invalid
+    NotFound:
+      description: >-
+        The specified resource was not found
+  schemas:
+    Table:
+      type: object
+      description: >-
+        A Prism Analytics table defining the schema for external data loaded
+        into Workday
+      properties:
+        id:
+          type: string
+          description: Unique identifier (WID) of the table
+        displayName:
+          type: string
+          description: Display name of the table
+        name:
+          type: string
+          description: API name of the table
+        description:
+          type: string
+          description: Description of the table purpose and contents
+        enableForAnalysis:
+          type: boolean
+          description: Whether the table is enabled for use in Prism reports
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableField'
+          description: Schema field definitions for the table
+        rowCount:
+          type: integer
+          description: Current number of rows in the table
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the table was created
+        updatedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the table was last modified
+    TableField:
+      type: object
+      description: >-
+        A field definition within a Prism Analytics table schema
+      properties:
+        name:
+          type: string
+          description: Field name used in data files and queries
+        displayName:
+          type: string
+          description: Display name shown in the Prism Analytics UI
+        fieldId:
+          type: string
+          description: Unique identifier of the field
+        ordinal:
+          type: integer
+          description: Position index of the field in the schema
+        type:
+          $ref: '#/components/schemas/FieldType'
+        required:
+          type: boolean
+          description: Whether the field is required for data loading
+        externalId:
+          type: boolean
+          description: >-
+            Whether this field serves as a unique identifier for upsert and
+            delete operations
+        precision:
+          type: integer
+          description: >-
+            Number of decimal places for numeric fields
+    FieldType:
+      type: object
+      description: >-
+        Data type specification for a table field
+      properties:
+        id:
+          type: string
+          description: Type identifier
+          enum:
+            - Text
+            - Numeric
+            - Date
+            - Boolean
+            - Instance
+        descriptor:
+          type: string
+          description: Display name of the field type
+    TableCreateRequest:
+      type: object
+      description: >-
+        Request body for creating a new Prism Analytics table
+      required:
+        - displayName
+        - fields
+      properties:
+        displayName:
+          type: string
+          description: Display name for the new table
+        description:
+          type: string
+          description: Description of the table purpose
+        enableForAnalysis:
+          type: boolean
+          description: Whether to enable the table for Prism reports
+          default: true
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableField'
+          description: Schema field definitions
+    TableUpdateRequest:
+      type: object
+      description: >-
+        Request body for updating a Prism Analytics table
+      properties:
+        displayName:
+          type: string
+          description: Updated display name
+        description:
+          type: string
+          description: Updated description
+    Dataset:
+      type: object
+      description: >-
+        A read-only Prism Analytics dataset derived from tables or Workday
+        data sources
+      properties:
+        id:
+          type: string
+          description: Unique identifier (WID) of the dataset
+        displayName:
+          type: string
+          description: Display name of the dataset
+        name:
+          type: string
+          description: API name of the dataset
+        description:
+          type: string
+          description: Description of the dataset
+        rowCount:
+          type: integer
+          description: Number of rows in the dataset
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableField'
+          description: Schema field definitions
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the dataset was created
+        updatedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the dataset was last refreshed
+    Bucket:
+      type: object
+      description: >-
+        A file upload bucket for staging data files before executing data
+        change operations on a Prism Analytics table
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the bucket
+        name:
+          type: string
+          description: Bucket name
+        state:
+          type: string
+          description: Current state of the bucket
+          enum:
+            - New
+            - Processing
+            - Success
+            - Error
+        operation:
+          type: string
+          description: Type of data change operation
+          enum:
+            - TruncateAndInsert
+            - Insert
+            - Update
+            - Upsert
+            - Delete
+        targetTable:
+          type: object
+          properties:
+            id:
+              type: string
+              description: ID of the target table
+            descriptor:
+              type: string
+              description: Display name of the target table
+          description: The Prism Analytics table to load data into
+        fileCount:
+          type: integer
+          description: Number of files uploaded to the bucket
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the bucket was created
+    BucketCreateRequest:
+      type: object
+      description: >-
+        Request body for creating a new file upload bucket
+      required:
+        - name
+        - operation
+        - targetTable
+      properties:
+        name:
+          type: string
+          description: Name for the bucket
+        operation:
+          type: string
+          description: Data change operation to perform
+          enum:
+            - TruncateAndInsert
+            - Insert
+            - Update
+            - Upsert
+            - Delete
+        targetTable:
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+              description: ID of the target Prism Analytics table
+    DataChangeTask:
+      type: object
+      description: >-
+        A data change task that processes uploaded files and applies data
+        modifications to a Prism Analytics table
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the data change task
+        displayName:
+          type: string
+          description: Display name of the task
+        status:
+          type: string
+          description: Current execution status of the task
+          enum:
+            - Queued
+            - Processing
+            - Success
+            - Error
+        operation:
+          type: string
+          description: Type of data operation performed
+          enum:
+            - TruncateAndInsert
+            - Insert
+            - Update
+            - Upsert
+            - Delete
+        targetTable:
+          type: object
+          properties:
+            id:
+              type: string
+              description: ID of the target table
+            descriptor:
+              type: string
+              description: Display name of the target table
+          description: The table that was modified
+        rowsInserted:
+          type: integer
+          description: Number of rows inserted
+        rowsUpdated:
+          type: integer
+          description: Number of rows updated
+        rowsDeleted:
+          type: integer
+          description: Number of rows deleted
+        rowsFailed:
+          type: integer
+          description: Number of rows that failed to process
+        startedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the task started processing
+        completedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the task completed
+        errorMessage:
+          type: string
+          description: Error details if the task failed

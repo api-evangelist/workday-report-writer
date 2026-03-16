@@ -1,10 +1,12 @@
+aid: workday-report-writer
 name: Workday Report Writer API
 description: APIs for Workday Report Writer - a tool for creating custom reports and data extracts from Workday HCM and Financial systems
-image: https://www.workday.com/content/dam/web/images/logo.svg
-url: https://www.workday.com
-created: '2024'
-modified: '2026-03-04'
-specificationVersion: '0.18'
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/workday-report-writer/refs/heads/main/apis.yml
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
 - enterprise
 - hrms

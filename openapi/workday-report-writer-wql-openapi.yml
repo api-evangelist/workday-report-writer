@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Workday WQL API
+  title: Workday Report Writer Workday WQL API
   description: >-
     Workday Query Language (WQL) API enabling SQL-like querying of Workday data
     through REST endpoints. Allows developers to construct queries using SELECT,
@@ -41,7 +41,7 @@ paths:
   /dataSources:
     get:
       operationId: listDataSources
-      summary: List available data sources
+      summary: Workday Report Writer List available data sources
       description: >-
         Retrieve a collection of data sources (tables) available for querying
         with WQL. Each data source represents a queryable entity in the Workday
@@ -71,7 +71,7 @@ paths:
   /dataSources/{dataSourceId}:
     get:
       operationId: getDataSource
-      summary: Get a data source
+      summary: Workday Report Writer Get a data source
       description: >-
         Retrieve details about a specific data source including its description
         and available fields for use in WQL queries.
@@ -93,7 +93,7 @@ paths:
   /dataSources/{dataSourceId}/fields:
     get:
       operationId: listDataSourceFields
-      summary: List data source fields
+      summary: Workday Report Writer List data source fields
       description: >-
         Retrieve the fields (columns) available in a specific data source.
         These fields can be used in SELECT, WHERE, and ORDER BY clauses of
@@ -126,7 +126,7 @@ paths:
   /dataSources/{dataSourceId}/filters:
     get:
       operationId: listDataSourceFilters
-      summary: List data source filters
+      summary: Workday Report Writer List data source filters
       description: >-
         Retrieve the filterable fields available for a specific data source.
         These filters can be used as parameters in WQL WHERE clauses with
@@ -159,7 +159,7 @@ paths:
   /data:
     get:
       operationId: executeWqlQuery
-      summary: Execute a WQL query
+      summary: Workday Report Writer Execute a WQL query
       description: >-
         Execute a Workday Query Language (WQL) query and retrieve paginated
         results. Supports SQL-like syntax with SELECT, FROM, WHERE, ORDER BY,

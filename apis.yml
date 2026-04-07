@@ -10,13 +10,13 @@ created: '2024-01-01'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
-  - enterprise
-  - hrms
-  - financials
-  - reporting
-  - analytics
-  - saas
-  - erp
+  - Analytics
+  - Enterprise
+  - Erp
+  - Financials
+  - Hrms
+  - Reporting
+  - Saas
 apis:
   - name: Workday Report Writer API
     description: >-
@@ -25,28 +25,23 @@ apis:
       report definitions, calculated fields, and report output across HCM and
       Financial Management modules.
     image: https://www.workday.com/content/dam/web/images/logo.svg
-    humanURL: 
-      https://www.workday.com/en-us/products/financial-management/reporting-analytics.html
+    humanURL: https://www.workday.com/en-us/products/financial-management/reporting-analytics.html
     baseURL: https://wd2-impl-services1.workday.com/ccx/service
     tags:
-      - Reports
       - Analytics
-      - Data Extraction
-      - SOAP
       - Custom Reports
+      - Data Extraction
+      - Reports
+      - SOAP
     properties:
       - type: Documentation
-        url: 
-          https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
+        url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
       - type: OpenAPI
-        url: 
-          https://community.workday.com/sites/default/files/file-hosting/productionapi/Report_as_a_Service/v41.0/Report_as_a_Service.html
+        url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Report_as_a_Service/v41.0/Report_as_a_Service.html
       - type: Reference
-        url: 
-          https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
+        url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
       - type: Authentication
-        url: 
-          https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
+        url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
     contact:
       - FN: Workday Support
         email: support@workday.com
@@ -61,17 +56,16 @@ apis:
     humanURL: https://community.workday.com/api
     baseURL: https://wd2-impl-services1.workday.com/ccx/service/customreport2
     tags:
-      - Reports
-      - Report As A Service
-      - Data Export
-      - REST
       - Custom Reports
+      - Data Export
+      - Report as a Service
+      - Reports
+      - REST
     properties:
       - type: Documentation
         url: https://community.workday.com/api
       - type: Authentication
-        url: 
-          https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
+        url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
       - type: Client Libraries
         url: https://github.com/Workday/raas-python
     contact:
@@ -85,21 +79,18 @@ apis:
       FROM, WHERE, ORDER BY, and LIMIT syntax to retrieve report data with high
       performance, controlled via OAuth 2.0 tokens.
     image: https://www.workday.com/content/dam/web/images/logo.svg
-    humanURL: 
-      https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
+    humanURL: https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
     baseURL: https://wd2-impl-services1.workday.com/ccx/api/wql
     tags:
-      - Query Language
-      - Data Access
       - Analytics
+      - Data Access
+      - Query Language
       - Reporting
     properties:
       - type: Documentation
-        url: 
-          https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
+        url: https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
       - type: Authentication
-        url: 
-          https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
+        url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
     contact:
       - FN: Workday Support
         email: support@workday.com
@@ -111,21 +102,18 @@ apis:
       Analytics for advanced reporting and analytics that combines internal Workday
       data with external sources.
     image: https://www.workday.com/content/dam/web/images/logo.svg
-    humanURL: 
-      https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html
+    humanURL: https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html
     baseURL: https://wd2-impl-services1.workday.com/ccx/api/prismAnalytics
     tags:
-      - Prism Analytics
       - Analytics
-      - Datasets
       - Data Loading
+      - Datasets
+      - Prism Analytics
     properties:
       - type: Documentation
-        url: 
-          https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html
+        url: https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html
       - type: Authentication
-        url: 
-          https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
+        url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
       - type: Client Libraries
         url: https://github.com/Workday/prism-python
     contact:
@@ -136,20 +124,17 @@ common:
   - type: Portal
     url: https://developer.workday.com/about
   - type: Getting Started
-    url: 
-      https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/KfHiRHLBJB0O63TxIyZCFA
+    url: https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/KfHiRHLBJB0O63TxIyZCFA
   - type: Documentation
     url: https://community.workday.com/api
   - type: Authentication
-    url: 
-      https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
   - type: Sandbox
     url: https://community.workday.com/articles/6394
   - type: Community
     url: https://community.workday.com/
   - type: Rate Limits
-    url: 
-      https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/a3a_TL5Tde61ZFJKLtycjg
+    url: https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/a3a_TL5Tde61ZFJKLtycjg
   - type: Terms of Service
     url: https://www.workday.com/en-us/legal.html
   - type: Privacy Policy
@@ -169,8 +154,7 @@ common:
   - type: GitHub Organization
     url: https://github.com/Workday
   - type: Reference
-    url: 
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

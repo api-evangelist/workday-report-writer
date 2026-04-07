@@ -32,10 +32,6 @@ tags:
     description: >-
       Execute custom reports exposed as web service endpoints, returning data
       in multiple formats including JSON, CSV, and XML
-  - name: Report Metadata
-    description: >-
-      Retrieve metadata about available report-as-a-service endpoints and
-      their prompt configurations
 security:
   - basicAuth: []
 paths:

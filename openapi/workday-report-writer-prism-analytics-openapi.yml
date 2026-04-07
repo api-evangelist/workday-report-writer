@@ -28,14 +28,6 @@ servers:
         description: Workday tenant name
         default: your-tenant
 tags:
-  - name: Tables
-    description: >-
-      Create and manage Prism Analytics tables that define the schema for
-      external data loaded into Workday for reporting and analytics
-  - name: Datasets
-    description: >-
-      Manage Prism Analytics datasets, which are read-only data collections
-      used in Prism reports and dashboards
   - name: Buckets
     description: >-
       Manage file upload buckets for staging compressed data files before
@@ -44,6 +36,14 @@ tags:
     description: >-
       Execute data change tasks to load, update, or delete data in Prism
       Analytics tables using files uploaded to buckets
+  - name: Datasets
+    description: >-
+      Manage Prism Analytics datasets, which are read-only data collections
+      used in Prism reports and dashboards
+  - name: Tables
+    description: >-
+      Create and manage Prism Analytics tables that define the schema for
+      external data loaded into Workday for reporting and analytics
 security:
   - bearerAuth: []
 paths:

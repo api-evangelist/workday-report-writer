@@ -41,7 +41,7 @@ paths:
   /dataSources:
     get:
       operationId: listDataSources
-      summary: Workday Report Writer List available data sources
+      summary: Workday Report Writer List Available Data Sources
       description: >-
         Retrieve a collection of data sources (tables) available for querying
         with WQL. Each data source represents a queryable entity in the Workday
@@ -71,7 +71,7 @@ paths:
   /dataSources/{dataSourceId}:
     get:
       operationId: getDataSource
-      summary: Workday Report Writer Get a data source
+      summary: Workday Report Writer Get a Data Source
       description: >-
         Retrieve details about a specific data source including its description
         and available fields for use in WQL queries.
@@ -93,7 +93,7 @@ paths:
   /dataSources/{dataSourceId}/fields:
     get:
       operationId: listDataSourceFields
-      summary: Workday Report Writer List data source fields
+      summary: Workday Report Writer List Data Source Fields
       description: >-
         Retrieve the fields (columns) available in a specific data source.
         These fields can be used in SELECT, WHERE, and ORDER BY clauses of
@@ -126,7 +126,7 @@ paths:
   /dataSources/{dataSourceId}/filters:
     get:
       operationId: listDataSourceFilters
-      summary: Workday Report Writer List data source filters
+      summary: Workday Report Writer List Data Source Filters
       description: >-
         Retrieve the filterable fields available for a specific data source.
         These filters can be used as parameters in WQL WHERE clauses with
@@ -159,7 +159,7 @@ paths:
   /data:
     get:
       operationId: executeWqlQuery
-      summary: Workday Report Writer Execute a WQL query
+      summary: Workday Report Writer Execute a WQL Query
       description: >-
         Execute a Workday Query Language (WQL) query and retrieve paginated
         results. Supports SQL-like syntax with SELECT, FROM, WHERE, ORDER BY,

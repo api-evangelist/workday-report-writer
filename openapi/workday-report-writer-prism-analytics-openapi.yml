@@ -50,7 +50,7 @@ paths:
   /tables:
     get:
       operationId: listTables
-      summary: Workday Report Writer List Prism Analytics tables
+      summary: Workday Report Writer List Prism Analytics Tables
       description: >-
         Retrieve a collection of Prism Analytics tables available in the tenant.
         Tables define the schema for external data loaded into Workday.
@@ -83,7 +83,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createTable
-      summary: Workday Report Writer Create a Prism Analytics table
+      summary: Workday Report Writer Create a Prism Analytics Table
       description: >-
         Create a new Prism Analytics table with a defined schema. The table
         schema specifies the fields, data types, and constraints for the
@@ -110,7 +110,7 @@ paths:
   /tables/{tableId}:
     get:
       operationId: getTable
-      summary: Workday Report Writer Get a Prism Analytics table
+      summary: Workday Report Writer Get a Prism Analytics Table
       description: >-
         Retrieve details of a specific Prism Analytics table including its
         schema definition, field mappings, and current state.
@@ -131,7 +131,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateTable
-      summary: Workday Report Writer Update a Prism Analytics table
+      summary: Workday Report Writer Update a Prism Analytics Table
       description: >-
         Update the display name or description of an existing Prism Analytics
         table. Schema changes require creating a new table version.
@@ -161,7 +161,7 @@ paths:
   /datasets:
     get:
       operationId: listDatasets
-      summary: Workday Report Writer List Prism Analytics datasets
+      summary: Workday Report Writer List Prism Analytics Datasets
       description: >-
         Retrieve a collection of Prism Analytics datasets. Datasets are
         read-only data collections derived from tables or Workday data
@@ -196,7 +196,7 @@ paths:
   /datasets/{datasetId}:
     get:
       operationId: getDataset
-      summary: Workday Report Writer Get a Prism Analytics dataset
+      summary: Workday Report Writer Get a Prism Analytics Dataset
       description: >-
         Retrieve details of a specific Prism Analytics dataset including its
         schema, row count, and last refresh timestamp.
@@ -218,7 +218,7 @@ paths:
   /buckets:
     get:
       operationId: listBuckets
-      summary: Workday Report Writer List file upload buckets
+      summary: Workday Report Writer List File Upload Buckets
       description: >-
         Retrieve a collection of file upload buckets. Buckets are used to
         stage compressed data files before executing data change tasks.
@@ -246,7 +246,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createBucket
-      summary: Workday Report Writer Create a file upload bucket
+      summary: Workday Report Writer Create a File Upload Bucket
       description: >-
         Create a new bucket for uploading data files to a specific Prism
         Analytics table. The bucket must be associated with a table and
@@ -273,7 +273,7 @@ paths:
   /buckets/{bucketId}:
     get:
       operationId: getBucket
-      summary: Workday Report Writer Get a file upload bucket
+      summary: Workday Report Writer Get a File Upload Bucket
       description: >-
         Retrieve details of a specific bucket including its state, associated
         table, and uploaded file count.
@@ -295,7 +295,7 @@ paths:
   /buckets/{bucketId}/files:
     post:
       operationId: uploadFileToBucket
-      summary: Workday Report Writer Upload a file to a bucket
+      summary: Workday Report Writer Upload a File to a Bucket
       description: >-
         Upload a single gzip-compressed data file to a bucket. Files must be
         delimited (CSV) and gzip compressed. The bucket state must be New.
@@ -327,7 +327,7 @@ paths:
   /buckets/{bucketId}/complete:
     post:
       operationId: completeBucket
-      summary: Workday Report Writer Complete a bucket and trigger data change task
+      summary: Workday Report Writer Complete a Bucket and Trigger Data Change Task
       description: >-
         Mark a bucket as complete after all files have been uploaded. This
         triggers the associated data change task to process the uploaded
@@ -352,7 +352,7 @@ paths:
   /dataChangeTasks:
     get:
       operationId: listDataChangeTasks
-      summary: Workday Report Writer List data change tasks
+      summary: Workday Report Writer List Data Change Tasks
       description: >-
         Retrieve a collection of data change tasks. Data change tasks represent
         operations that modify data in Prism Analytics tables, including inserts,
@@ -382,7 +382,7 @@ paths:
   /dataChangeTasks/{taskId}:
     get:
       operationId: getDataChangeTask
-      summary: Workday Report Writer Get a data change task
+      summary: Workday Report Writer Get a Data Change Task
       description: >-
         Retrieve details of a specific data change task including its status,
         operation type, row counts, and any error information.

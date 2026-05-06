@@ -1,0 +1,456 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Report Writer Workday Prism Analytics API
+  description: REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic
+    loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data
+    with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets,
+    and executing data change tasks to apply inserts, updates, upserts, and deletes.
+  tags:
+  - Workday
+  - Report
+  - Writer
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: workday-report-writer
+    baseUri: https://wd2-impl-services1.workday.com/api/prismAnalytics/v3/your-tenant
+    description: Workday Report Writer Workday Prism Analytics API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{WORKDAY_REPORT_WRITER_TOKEN}}'
+    resources:
+    - name: tables
+      path: /tables
+      operations:
+      - name: listtables
+        method: GET
+        description: Workday Report Writer List Prism Analytics Tables
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: Filter tables by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtable
+        method: POST
+        description: Workday Report Writer Create a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tables-tableid
+      path: /tables/{tableId}
+      operations:
+      - name: gettable
+        method: GET
+        description: Workday Report Writer Get a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetable
+        method: PATCH
+        description: Workday Report Writer Update a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasets
+      path: /datasets
+      operations:
+      - name: listdatasets
+        method: GET
+        description: Workday Report Writer List Prism Analytics Datasets
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: Filter datasets by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasets-datasetid
+      path: /datasets/{datasetId}
+      operations:
+      - name: getdataset
+        method: GET
+        description: Workday Report Writer Get a Prism Analytics Dataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: buckets
+      path: /buckets
+      operations:
+      - name: listbuckets
+        method: GET
+        description: Workday Report Writer List File Upload Buckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbucket
+        method: POST
+        description: Workday Report Writer Create a File Upload Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: buckets-bucketid
+      path: /buckets/{bucketId}
+      operations:
+      - name: getbucket
+        method: GET
+        description: Workday Report Writer Get a File Upload Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: buckets-bucketid-files
+      path: /buckets/{bucketId}/files
+      operations:
+      - name: uploadfiletobucket
+        method: POST
+        description: Workday Report Writer Upload a File to a Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: buckets-bucketid-complete
+      path: /buckets/{bucketId}/complete
+      operations:
+      - name: completebucket
+        method: POST
+        description: Workday Report Writer Complete a Bucket and Trigger Data Change Task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datachangetasks
+      path: /dataChangeTasks
+      operations:
+      - name: listdatachangetasks
+        method: GET
+        description: Workday Report Writer List Data Change Tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datachangetasks-taskid
+      path: /dataChangeTasks/{taskId}
+      operations:
+      - name: getdatachangetask
+        method: GET
+        description: Workday Report Writer Get a Data Change Task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: workday-report-writer-rest
+    description: REST adapter for Workday Report Writer Workday Prism Analytics API.
+    resources:
+    - path: /tables
+      name: listtables
+      operations:
+      - method: GET
+        name: listtables
+        description: Workday Report Writer List Prism Analytics Tables
+        call: workday-report-writer.listtables
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /tables
+      name: createtable
+      operations:
+      - method: POST
+        name: createtable
+        description: Workday Report Writer Create a Prism Analytics Table
+        call: workday-report-writer.createtable
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /tables/{tableId}
+      name: gettable
+      operations:
+      - method: GET
+        name: gettable
+        description: Workday Report Writer Get a Prism Analytics Table
+        call: workday-report-writer.gettable
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /tables/{tableId}
+      name: updatetable
+      operations:
+      - method: PATCH
+        name: updatetable
+        description: Workday Report Writer Update a Prism Analytics Table
+        call: workday-report-writer.updatetable
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /datasets
+      name: listdatasets
+      operations:
+      - method: GET
+        name: listdatasets
+        description: Workday Report Writer List Prism Analytics Datasets
+        call: workday-report-writer.listdatasets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /datasets/{datasetId}
+      name: getdataset
+      operations:
+      - method: GET
+        name: getdataset
+        description: Workday Report Writer Get a Prism Analytics Dataset
+        call: workday-report-writer.getdataset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /buckets
+      name: listbuckets
+      operations:
+      - method: GET
+        name: listbuckets
+        description: Workday Report Writer List File Upload Buckets
+        call: workday-report-writer.listbuckets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /buckets
+      name: createbucket
+      operations:
+      - method: POST
+        name: createbucket
+        description: Workday Report Writer Create a File Upload Bucket
+        call: workday-report-writer.createbucket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /buckets/{bucketId}
+      name: getbucket
+      operations:
+      - method: GET
+        name: getbucket
+        description: Workday Report Writer Get a File Upload Bucket
+        call: workday-report-writer.getbucket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /buckets/{bucketId}/files
+      name: uploadfiletobucket
+      operations:
+      - method: POST
+        name: uploadfiletobucket
+        description: Workday Report Writer Upload a File to a Bucket
+        call: workday-report-writer.uploadfiletobucket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /buckets/{bucketId}/complete
+      name: completebucket
+      operations:
+      - method: POST
+        name: completebucket
+        description: Workday Report Writer Complete a Bucket and Trigger Data Change Task
+        call: workday-report-writer.completebucket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dataChangeTasks
+      name: listdatachangetasks
+      operations:
+      - method: GET
+        name: listdatachangetasks
+        description: Workday Report Writer List Data Change Tasks
+        call: workday-report-writer.listdatachangetasks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dataChangeTasks/{taskId}
+      name: getdatachangetask
+      operations:
+      - method: GET
+        name: getdatachangetask
+        description: Workday Report Writer Get a Data Change Task
+        call: workday-report-writer.getdatachangetask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: workday-report-writer-mcp
+    transport: http
+    description: MCP adapter for Workday Report Writer Workday Prism Analytics API for AI agent use.
+    tools:
+    - name: listtables
+      description: Workday Report Writer List Prism Analytics Tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.listtables
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: Filter tables by name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtable
+      description: Workday Report Writer Create a Prism Analytics Table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workday-report-writer.createtable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettable
+      description: Workday Report Writer Get a Prism Analytics Table
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.gettable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatetable
+      description: Workday Report Writer Update a Prism Analytics Table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workday-report-writer.updatetable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdatasets
+      description: Workday Report Writer List Prism Analytics Datasets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.listdatasets
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: Filter datasets by name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdataset
+      description: Workday Report Writer Get a Prism Analytics Dataset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.getdataset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listbuckets
+      description: Workday Report Writer List File Upload Buckets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.listbuckets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createbucket
+      description: Workday Report Writer Create a File Upload Bucket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workday-report-writer.createbucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getbucket
+      description: Workday Report Writer Get a File Upload Bucket
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.getbucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: uploadfiletobucket
+      description: Workday Report Writer Upload a File to a Bucket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workday-report-writer.uploadfiletobucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: completebucket
+      description: Workday Report Writer Complete a Bucket and Trigger Data Change Task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workday-report-writer.completebucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdatachangetasks
+      description: Workday Report Writer List Data Change Tasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.listdatachangetasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdatachangetask
+      description: Workday Report Writer Get a Data Change Task
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workday-report-writer.getdatachangetask
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    WORKDAY_REPORT_WRITER_TOKEN: WORKDAY_REPORT_WRITER_TOKEN

@@ -1,0 +1,166 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Report Writer Workday WQL API — Data Sources
+  description: 'Workday Report Writer Workday WQL API — Data Sources. 4 operations. Lead operation: Workday Report Writer
+    List Available Data Sources. Self-contained Naftiko capability covering one Workday Report Writer business surface.'
+  tags:
+  - Workday Report Writer
+  - Data Sources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORKDAY_REPORT_WRITER_API_KEY: WORKDAY_REPORT_WRITER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wql-data-sources
+    baseUri: https://{hostname}/ccx/api/wql/v1/{tenant}
+    description: Workday Report Writer Workday WQL API — Data Sources business capability. Self-contained, no shared references.
+    resources:
+    - name: dataSources
+      path: /dataSources
+      operations:
+      - name: listdatasources
+        method: GET
+        description: Workday Report Writer List Available Data Sources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dataSources-dataSourceId
+      path: /dataSources/{dataSourceId}
+      operations:
+      - name: getdatasource
+        method: GET
+        description: Workday Report Writer Get a Data Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dataSources-dataSourceId-fields
+      path: /dataSources/{dataSourceId}/fields
+      operations:
+      - name: listdatasourcefields
+        method: GET
+        description: Workday Report Writer List Data Source Fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dataSources-dataSourceId-filters
+      path: /dataSources/{dataSourceId}/filters
+      operations:
+      - name: listdatasourcefilters
+        method: GET
+        description: Workday Report Writer List Data Source Filters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.WORKDAY_REPORT_WRITER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: wql-data-sources-rest
+    port: 8080
+    description: REST adapter for Workday Report Writer Workday WQL API — Data Sources. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/datasources
+      name: datasources
+      description: REST surface for dataSources.
+      operations:
+      - method: GET
+        name: listdatasources
+        description: Workday Report Writer List Available Data Sources
+        call: wql-data-sources.listdatasources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/{datasourceid}
+      name: datasources-datasourceid
+      description: REST surface for dataSources-dataSourceId.
+      operations:
+      - method: GET
+        name: getdatasource
+        description: Workday Report Writer Get a Data Source
+        call: wql-data-sources.getdatasource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/{datasourceid}/fields
+      name: datasources-datasourceid-fields
+      description: REST surface for dataSources-dataSourceId-fields.
+      operations:
+      - method: GET
+        name: listdatasourcefields
+        description: Workday Report Writer List Data Source Fields
+        call: wql-data-sources.listdatasourcefields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/{datasourceid}/filters
+      name: datasources-datasourceid-filters
+      description: REST surface for dataSources-dataSourceId-filters.
+      operations:
+      - method: GET
+        name: listdatasourcefilters
+        description: Workday Report Writer List Data Source Filters
+        call: wql-data-sources.listdatasourcefilters
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wql-data-sources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Workday Report Writer Workday WQL API — Data Sources. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: workday-report-writer-list-available
+      description: Workday Report Writer List Available Data Sources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wql-data-sources.listdatasources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-get-data
+      description: Workday Report Writer Get a Data Source
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wql-data-sources.getdatasource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-list-data
+      description: Workday Report Writer List Data Source Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wql-data-sources.listdatasourcefields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-list-data-2
+      description: Workday Report Writer List Data Source Filters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wql-data-sources.listdatasourcefilters
+      outputParameters:
+      - type: object
+        mapping: $.

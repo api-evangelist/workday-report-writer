@@ -1,0 +1,182 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Report Writer Workday Prism Analytics API — Tables
+  description: 'Workday Report Writer Workday Prism Analytics API — Tables. 4 operations. Lead operation: Workday Report Writer
+    List Prism Analytics Tables. Self-contained Naftiko capability covering one Workday Report Writer business surface.'
+  tags:
+  - Workday Report Writer
+  - Tables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORKDAY_REPORT_WRITER_API_KEY: WORKDAY_REPORT_WRITER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: prism-analytics-tables
+    baseUri: https://{hostname}/api/prismAnalytics/v3/{tenant}
+    description: Workday Report Writer Workday Prism Analytics API — Tables business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: tables
+      path: /tables
+      operations:
+      - name: listtables
+        method: GET
+        description: Workday Report Writer List Prism Analytics Tables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: Filter tables by name
+      - name: createtable
+        method: POST
+        description: Workday Report Writer Create a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tables-tableId
+      path: /tables/{tableId}
+      operations:
+      - name: gettable
+        method: GET
+        description: Workday Report Writer Get a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetable
+        method: PATCH
+        description: Workday Report Writer Update a Prism Analytics Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.WORKDAY_REPORT_WRITER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: prism-analytics-tables-rest
+    port: 8080
+    description: REST adapter for Workday Report Writer Workday Prism Analytics API — Tables. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tables
+      name: tables
+      description: REST surface for tables.
+      operations:
+      - method: GET
+        name: listtables
+        description: Workday Report Writer List Prism Analytics Tables
+        call: prism-analytics-tables.listtables
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtable
+        description: Workday Report Writer Create a Prism Analytics Table
+        call: prism-analytics-tables.createtable
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tables/{tableid}
+      name: tables-tableid
+      description: REST surface for tables-tableId.
+      operations:
+      - method: GET
+        name: gettable
+        description: Workday Report Writer Get a Prism Analytics Table
+        call: prism-analytics-tables.gettable
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatetable
+        description: Workday Report Writer Update a Prism Analytics Table
+        call: prism-analytics-tables.updatetable
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: prism-analytics-tables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Workday Report Writer Workday Prism Analytics API — Tables. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: workday-report-writer-list-prism
+      description: Workday Report Writer List Prism Analytics Tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-analytics-tables.listtables
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-create-prism
+      description: Workday Report Writer Create a Prism Analytics Table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: prism-analytics-tables.createtable
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-get-prism
+      description: Workday Report Writer Get a Prism Analytics Table
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: prism-analytics-tables.gettable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workday-report-writer-update-prism
+      description: Workday Report Writer Update a Prism Analytics Table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: prism-analytics-tables.updatetable
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

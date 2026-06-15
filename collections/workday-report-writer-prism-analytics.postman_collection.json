@@ -1,0 +1,3285 @@
+{
+  "item": [
+    {
+      "id": "8666a597-b88d-45d4-91aa-fad88281490b",
+      "name": "Buckets",
+      "description": {
+        "content": "Manage file upload buckets for staging compressed data files before executing data change tasks against tables",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1750a545-65d7-4d96-83f6-041c45e7f49f",
+          "name": "Workday Report Writer List File Upload Buckets",
+          "request": {
+            "name": "Workday Report Writer List File Upload Buckets",
+            "description": {
+              "content": "Retrieve a collection of file upload buckets. Buckets are used to stage compressed data files before executing data change tasks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buckets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "083b9fed-d433-47a6-a7c2-e3916b3c401d",
+              "name": "Buckets retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 6201,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"Processing\",\n      \"operation\": \"Update\",\n      \"targetTable\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\"\n      },\n      \"fileCount\": 2297,\n      \"createdOn\": \"2001-12-05T21:08:38.180Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"state\": \"Success\",\n      \"operation\": \"Upsert\",\n      \"targetTable\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\"\n      },\n      \"fileCount\": 9503,\n      \"createdOn\": \"2022-09-15T04:24:29.565Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f68013bb-cbe4-4ab7-ba10-912e2c405eb1",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc43a24b-d58d-40f9-9545-acfe363869b5",
+          "name": "Workday Report Writer Create a File Upload Bucket",
+          "request": {
+            "name": "Workday Report Writer Create a File Upload Bucket",
+            "description": {
+              "content": "Create a new bucket for uploading data files to a specific Prism Analytics table. The bucket must be associated with a table and specifies the data change operation type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buckets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"targetTable\": {\n    \"id\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd5b9800-b1eb-41e3-a4bc-ce802f64be4c",
+              "name": "Bucket created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"targetTable\": {\n    \"id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"Processing\",\n  \"operation\": \"Update\",\n  \"targetTable\": {\n    \"id\": \"string\",\n    \"descriptor\": \"string\"\n  },\n  \"fileCount\": 2478,\n  \"createdOn\": \"1971-01-08T19:18:46.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31495aaa-828d-4e6b-a8b3-a6fb585cf50d",
+              "name": "The request was malformed or contained invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"targetTable\": {\n    \"id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5e63d22-d152-4e73-bc47-7936edf2a0d3",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"targetTable\": {\n    \"id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb472ab6-1029-4760-b844-c8054bf06501",
+          "name": "Workday Report Writer Get a File Upload Bucket",
+          "request": {
+            "name": "Workday Report Writer Get a File Upload Bucket",
+            "description": {
+              "content": "Retrieve details of a specific bucket including its state, associated table, and uploaded file count.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buckets",
+                ":bucketId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketId",
+                  "description": "(Required) Unique identifier of the file upload bucket"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1f0755e-2afc-4c0a-ae47-30e456f4ee33",
+              "name": "Bucket details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"Processing\",\n  \"operation\": \"Update\",\n  \"targetTable\": {\n    \"id\": \"string\",\n    \"descriptor\": \"string\"\n  },\n  \"fileCount\": 2478,\n  \"createdOn\": \"1971-01-08T19:18:46.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9252f55-b782-45e1-aca1-6dfbafd9cefb",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3903938e-6950-430c-ae83-8673282d19c5",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c27a4336-49c9-4172-aac1-b056fe0a747f",
+          "name": "Workday Report Writer Upload a File to a Bucket",
+          "request": {
+            "name": "Workday Report Writer Upload a File to a Bucket",
+            "description": {
+              "content": "Upload a single gzip-compressed data file to a bucket. Files must be delimited (CSV) and gzip compressed. The bucket state must be New. Multiple files can be uploaded by making multiple POST requests sequentially or concurrently. Maximum upload size for a single compressed file is 256 MB.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buckets",
+                ":bucketId",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketId",
+                  "description": "(Required) Unique identifier of the file upload bucket"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/gzip"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "1dcc6b0b-b3b2-4524-a83c-e8b8ae519012",
+              "name": "File uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9127ac7b-5528-4bec-9ba6-f45ea9f5779d",
+              "name": "The request was malformed or contained invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ae67d33-066f-42aa-a62f-e4be6231d3dc",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6928bc2a-4131-4ea0-a4f4-faecd0ee5355",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0be54c5d-f29d-43fa-9a53-1cbe442f22c0",
+          "name": "Workday Report Writer Complete a Bucket and Trigger Data Change Task",
+          "request": {
+            "name": "Workday Report Writer Complete a Bucket and Trigger Data Change Task",
+            "description": {
+              "content": "Mark a bucket as complete after all files have been uploaded. This triggers the associated data change task to process the uploaded files and apply the data changes to the target Prism Analytics table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buckets",
+                ":bucketId",
+                "complete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketId",
+                  "description": "(Required) Unique identifier of the file upload bucket"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd14df6f-263a-45d3-918a-3e7bf6c803f8",
+              "name": "Bucket completed and data change task initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"Processing\",\n  \"operation\": \"Update\",\n  \"targetTable\": {\n    \"id\": \"string\",\n    \"descriptor\": \"string\"\n  },\n  \"fileCount\": 2478,\n  \"createdOn\": \"1971-01-08T19:18:46.995Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac4bdac7-03c2-47a5-8c51-3256004c8269",
+              "name": "The request was malformed or contained invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "868b4d8d-1718-4267-bf2c-b1959d5c2e48",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e6f60c1-101d-4a2f-94b2-345e9dc4bdc3",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buckets",
+                    ":bucketId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketId",
+                      "description": "(Required) Unique identifier of the file upload bucket"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "08cde7fd-836d-4128-bc23-892a15de62fc",
+      "name": "Data Change Tasks",
+      "description": {
+        "content": "Execute data change tasks to load, update, or delete data in Prism Analytics tables using files uploaded to buckets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31634b50-442a-4ce6-84d2-c8aeaaee4916",
+          "name": "Workday Report Writer List Data Change Tasks",
+          "request": {
+            "name": "Workday Report Writer List Data Change Tasks",
+            "description": {
+              "content": "Retrieve a collection of data change tasks. Data change tasks represent operations that modify data in Prism Analytics tables, including inserts, updates, upserts, and deletes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataChangeTasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "558c6cfc-2cc9-4ad4-8694-8e49486e6055",
+              "name": "Data change tasks retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataChangeTasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 3002,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"status\": \"Success\",\n      \"operation\": \"Update\",\n      \"targetTable\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\"\n      },\n      \"rowsInserted\": 1011,\n      \"rowsUpdated\": 3604,\n      \"rowsDeleted\": 4848,\n      \"rowsFailed\": 8128,\n      \"startedOn\": \"1968-11-16T18:02:39.710Z\",\n      \"completedOn\": \"1996-05-14T22:48:44.803Z\",\n      \"errorMessage\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"status\": \"Error\",\n      \"operation\": \"Update\",\n      \"targetTable\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\"\n      },\n      \"rowsInserted\": 8589,\n      \"rowsUpdated\": 6125,\n      \"rowsDeleted\": 8920,\n      \"rowsFailed\": 853,\n      \"startedOn\": \"1952-07-12T15:17:48.507Z\",\n      \"completedOn\": \"2025-12-26T16:51:49.623Z\",\n      \"errorMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e80fbc9f-5927-400c-9204-c8fd83d31fc7",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataChangeTasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0bbba1e-05e3-440f-bb87-47b41c6f30e3",
+          "name": "Workday Report Writer Get a Data Change Task",
+          "request": {
+            "name": "Workday Report Writer Get a Data Change Task",
+            "description": {
+              "content": "Retrieve details of a specific data change task including its status, operation type, row counts, and any error information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataChangeTasks",
+                ":taskId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskId",
+                  "description": "(Required) Unique identifier of the data change task"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d70aad44-0a19-4e21-89dd-d6fd232915f3",
+              "name": "Data change task details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataChangeTasks",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskId",
+                      "description": "(Required) Unique identifier of the data change task"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"status\": \"Queued\",\n  \"operation\": \"TruncateAndInsert\",\n  \"targetTable\": {\n    \"id\": \"string\",\n    \"descriptor\": \"string\"\n  },\n  \"rowsInserted\": 9466,\n  \"rowsUpdated\": 553,\n  \"rowsDeleted\": 4522,\n  \"rowsFailed\": 6917,\n  \"startedOn\": \"1993-01-03T08:01:27.031Z\",\n  \"completedOn\": \"1966-10-28T18:07:06.765Z\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27b6f9be-f5fe-45b0-bb4c-50489c62aeb8",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataChangeTasks",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskId",
+                      "description": "(Required) Unique identifier of the data change task"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d164676-5032-4053-95b0-fed716e950b5",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataChangeTasks",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskId",
+                      "description": "(Required) Unique identifier of the data change task"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d5e6f711-1022-493f-a4da-e185242ea3d0",
+      "name": "Datasets",
+      "description": {
+        "content": "Manage Prism Analytics datasets, which are read-only data collections used in Prism reports and dashboards",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3bc8888-84f6-4bde-a36b-24db1fbdaddb",
+          "name": "Workday Report Writer List Prism Analytics Datasets",
+          "request": {
+            "name": "Workday Report Writer List Prism Analytics Datasets",
+            "description": {
+              "content": "Retrieve a collection of Prism Analytics datasets. Datasets are read-only data collections derived from tables or Workday data sources used in Prism reports and dashboards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter datasets by name"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b99ce7cf-c131-4f9d-9b50-1891262c2f1c",
+              "name": "Datasets retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8678,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"rowCount\": 997,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 1169,\n          \"type\": {\n            \"id\": \"Text\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": true,\n          \"externalId\": true,\n          \"precision\": 8426\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 8910,\n          \"type\": {\n            \"id\": \"Instance\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 2010\n        }\n      ],\n      \"createdOn\": \"2016-06-18T02:09:15.955Z\",\n      \"updatedOn\": \"1990-03-25T07:08:07.713Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"rowCount\": 6702,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 2447,\n          \"type\": {\n            \"id\": \"Boolean\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 7911\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 5449,\n          \"type\": {\n            \"id\": \"Boolean\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": true,\n          \"externalId\": false,\n          \"precision\": 5693\n        }\n      ],\n      \"createdOn\": \"1959-11-14T23:27:19.830Z\",\n      \"updatedOn\": \"1961-05-27T18:40:34.364Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "458a7b4c-32c1-415a-8bfa-cea0673484ae",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "830bf552-84e9-4716-ad6f-4f48d97535e4",
+          "name": "Workday Report Writer Get a Prism Analytics Dataset",
+          "request": {
+            "name": "Workday Report Writer Get a Prism Analytics Dataset",
+            "description": {
+              "content": "Retrieve details of a specific Prism Analytics dataset including its schema, row count, and last refresh timestamp.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "140ffb13-a896-42cf-ac28-df3ff4d51dc7",
+              "name": "Dataset details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"rowCount\": 7355,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 2993,\n      \"type\": {\n        \"id\": \"Boolean\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": false,\n      \"precision\": 332\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 853,\n      \"type\": {\n        \"id\": \"Numeric\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": false,\n      \"precision\": 1566\n    }\n  ],\n  \"createdOn\": \"1949-11-13T16:42:00.556Z\",\n  \"updatedOn\": \"2009-07-19T08:56:11.168Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c74c7bed-a9bd-47a4-aa50-71fe120628a8",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2ecf5d1-eaef-4923-87aa-174a8c960ebb",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cfea3f9d-179e-4af6-8a2d-b32fd2fe0b22",
+      "name": "Tables",
+      "description": {
+        "content": "Create and manage Prism Analytics tables that define the schema for external data loaded into Workday for reporting and analytics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0bdb8509-f9ed-47d8-a2c8-ca6f6729e92d",
+          "name": "Workday Report Writer List Prism Analytics Tables",
+          "request": {
+            "name": "Workday Report Writer List Prism Analytics Tables",
+            "description": {
+              "content": "Retrieve a collection of Prism Analytics tables available in the tenant. Tables define the schema for external data loaded into Workday.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter tables by name"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72fb775c-3d99-4f9c-bfa9-027a31721b59",
+              "name": "Tables retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8308,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enableForAnalysis\": true,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 7121,\n          \"type\": {\n            \"id\": \"Boolean\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 5588\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 2870,\n          \"type\": {\n            \"id\": \"Instance\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 7147\n        }\n      ],\n      \"rowCount\": 3133,\n      \"createdOn\": \"1973-06-19T16:57:16.847Z\",\n      \"updatedOn\": \"1992-08-14T09:31:13.298Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enableForAnalysis\": false,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 1676,\n          \"type\": {\n            \"id\": \"Date\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 9209\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 1861,\n          \"type\": {\n            \"id\": \"Text\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": true,\n          \"externalId\": true,\n          \"precision\": 7220\n        }\n      ],\n      \"rowCount\": 4293,\n      \"createdOn\": \"2006-12-16T01:59:35.494Z\",\n      \"updatedOn\": \"1951-04-21T11:40:20.842Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb9d47d4-cc24-4c82-b518-5a9f9883467c",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d77a880-045d-46e2-bac8-d6e021f04775",
+          "name": "Workday Report Writer Create a Prism Analytics Table",
+          "request": {
+            "name": "Workday Report Writer Create a Prism Analytics Table",
+            "description": {
+              "content": "Create a new Prism Analytics table with a defined schema. The table schema specifies the fields, data types, and constraints for the external data that will be loaded.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"fieldId\": \"<string>\",\n      \"ordinal\": \"<integer>\",\n      \"type\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"required\": \"<boolean>\",\n      \"externalId\": \"<boolean>\",\n      \"precision\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"fieldId\": \"<string>\",\n      \"ordinal\": \"<integer>\",\n      \"type\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"required\": \"<boolean>\",\n      \"externalId\": \"<boolean>\",\n      \"precision\": \"<integer>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"enableForAnalysis\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "727e9c10-bb98-4b31-858b-e7aa7c012cae",
+              "name": "Table created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 622,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": false,\n      \"precision\": 4771\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 6875,\n      \"type\": {\n        \"id\": \"Boolean\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 7788\n    }\n  ],\n  \"description\": \"<string>\",\n  \"enableForAnalysis\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"enableForAnalysis\": true,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 7707,\n      \"type\": {\n        \"id\": \"Instance\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 4066\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 2028,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": true,\n      \"precision\": 2926\n    }\n  ],\n  \"rowCount\": 6385,\n  \"createdOn\": \"1965-03-02T03:08:49.964Z\",\n  \"updatedOn\": \"2015-11-19T12:09:59.679Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4f15b86-6431-4d43-aff2-05229a9764c9",
+              "name": "The request was malformed or contained invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 622,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": false,\n      \"precision\": 4771\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 6875,\n      \"type\": {\n        \"id\": \"Boolean\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 7788\n    }\n  ],\n  \"description\": \"<string>\",\n  \"enableForAnalysis\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2579fcbb-66ea-4d26-bb7a-7b88037d4c33",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 622,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": false,\n      \"precision\": 4771\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 6875,\n      \"type\": {\n        \"id\": \"Boolean\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 7788\n    }\n  ],\n  \"description\": \"<string>\",\n  \"enableForAnalysis\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57895296-b88b-4c46-abb2-4b4988e20478",
+          "name": "Workday Report Writer Get a Prism Analytics Table",
+          "request": {
+            "name": "Workday Report Writer Get a Prism Analytics Table",
+            "description": {
+              "content": "Retrieve details of a specific Prism Analytics table including its schema definition, field mappings, and current state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tables",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b05d46b4-7b47-49eb-ad25-c7b501b80432",
+              "name": "Table details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"enableForAnalysis\": true,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 7707,\n      \"type\": {\n        \"id\": \"Instance\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 4066\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 2028,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": true,\n      \"precision\": 2926\n    }\n  ],\n  \"rowCount\": 6385,\n  \"createdOn\": \"1965-03-02T03:08:49.964Z\",\n  \"updatedOn\": \"2015-11-19T12:09:59.679Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5e99bfa-99bb-4f9e-a533-ad64585541e8",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17f5e8b8-52bc-41d7-a9f3-273ad7b49c15",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c80c9acd-d48d-4c27-986a-d3c14ba39534",
+          "name": "Workday Report Writer Update a Prism Analytics Table",
+          "request": {
+            "name": "Workday Report Writer Update a Prism Analytics Table",
+            "description": {
+              "content": "Update the display name or description of an existing Prism Analytics table. Schema changes require creating a new table version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tables",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23ac1a6b-d89a-4216-b12b-560f73d64f8a",
+              "name": "Table updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"enableForAnalysis\": true,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 7707,\n      \"type\": {\n        \"id\": \"Instance\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": true,\n      \"precision\": 4066\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 2028,\n      \"type\": {\n        \"id\": \"Text\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": true,\n      \"precision\": 2926\n    }\n  ],\n  \"rowCount\": 6385,\n  \"createdOn\": \"1965-03-02T03:08:49.964Z\",\n  \"updatedOn\": \"2015-11-19T12:09:59.679Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9db07b80-6668-47d3-8635-8306578ad7da",
+              "name": "The request was malformed or contained invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff3e5fdb-d85f-4d25-b7b8-8733f8f228a4",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c37d853f-5ebd-48e1-a0e7-1a728e5bb449",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics table"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday data center hostname, varies by tenant deployment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "hostname"
+    },
+    {
+      "description": {
+        "content": "Workday tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c6a0befb-3ad9-4472-bbd2-f0984ad18e09",
+    "name": "Workday Report Writer Workday Prism Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+      "type": "text/plain"
+    }
+  }
+}

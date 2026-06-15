@@ -1,0 +1,1331 @@
+{
+  "item": [
+    {
+      "id": "bd5dc162-5768-40c2-a511-3271001a9221",
+      "name": "Data Sources",
+      "description": {
+        "content": "Discover available data sources (tables) that can be queried using WQL, including their fields and filter definitions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45de0f61-1ca3-4e05-a0c2-b5ac9aefd8b9",
+          "name": "Workday Report Writer List Available Data Sources",
+          "request": {
+            "name": "Workday Report Writer List Available Data Sources",
+            "description": {
+              "content": "Retrieve a collection of data sources (tables) available for querying with WQL. Each data source represents a queryable entity in the Workday data model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataSources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a97e52aa-db17-4d1e-a88f-e350542e04a1",
+              "name": "Data sources retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1215,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"href\": \"http://WfcAs.qvP6Zpt9CqrnDYh2pnvLRDQQndLI5zgig7DNwR\"\n    },\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"href\": \"http://ASDkZZEcTvAHmcdcsZv.pwibvGUolKcWHmmbQPzBzoNIXd\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e49cf6c-d3f0-411d-9822-604203bd71e6",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05e47fbe-37dc-499e-9542-fc8305892db0",
+          "name": "Workday Report Writer Get a Data Source",
+          "request": {
+            "name": "Workday Report Writer Get a Data Source",
+            "description": {
+              "content": "Retrieve details about a specific data source including its description and available fields for use in WQL queries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataSources",
+                ":dataSourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) Unique identifier of the data source"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8efcbf72-16c7-4626-9e91-09f736f8eed1",
+              "name": "Data source details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"descriptor\": \"string\",\n  \"href\": \"http://vswvCdEbCzWWkbXXZKRTheOqmU.jzkbiqf2zFjM-pXAS0pRI+8HnrhalQ1ebXHe1IzCXgnBxsDadfNTdVNyPUreGx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c244a51-29f4-4ca0-b66d-412e7c9d4ce8",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db030e7a-7cc5-4c3c-a54a-1e08d121ffcb",
+              "name": "The specified data source was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2eb84832-7c59-41e8-a28c-3a08271dac07",
+          "name": "Workday Report Writer List Data Source Fields",
+          "request": {
+            "name": "Workday Report Writer List Data Source Fields",
+            "description": {
+              "content": "Retrieve the fields (columns) available in a specific data source. These fields can be used in SELECT, WHERE, and ORDER BY clauses of WQL queries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataSources",
+                ":dataSourceId",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) Unique identifier of the data source"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49788910-91ab-45b9-b5f4-d87476de4dec",
+              "name": "Data source fields retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 3112,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"alias\": \"string\",\n      \"dataType\": \"Boolean\",\n      \"ordinal\": 8837,\n      \"isRequired\": true\n    },\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"alias\": \"string\",\n      \"dataType\": \"Boolean\",\n      \"ordinal\": 6585,\n      \"isRequired\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb0b6c6f-f12c-4bca-ab17-8ffbb25cf07c",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8cc1c67-c7b4-480e-a5b9-a21dc01b01e9",
+              "name": "The specified data source was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "505d9b10-e6ed-49a7-8012-267397344120",
+          "name": "Workday Report Writer List Data Source Filters",
+          "request": {
+            "name": "Workday Report Writer List Data Source Filters",
+            "description": {
+              "content": "Retrieve the filterable fields available for a specific data source. These filters can be used as parameters in WQL WHERE clauses with the dataSourceFilter syntax.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataSources",
+                ":dataSourceId",
+                "filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) Unique identifier of the data source"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b23504c1-6dac-4a11-a78c-006b54d9a4e6",
+              "name": "Data source filters retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 4963,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"alias\": \"string\",\n      \"dataType\": \"string\",\n      \"required\": true\n    },\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"alias\": \"string\",\n      \"dataType\": \"string\",\n      \"required\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19b3da08-d6f8-4dc5-8659-f6098ae6e668",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1d2f1e7-2e67-4eed-9c0f-f3fe1870c8e9",
+              "name": "The specified data source was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId",
+                    "filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceId",
+                      "description": "(Required) Unique identifier of the data source"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fb11a933-dd27-4706-a44e-444f84e95cb2",
+      "name": "Query Execution",
+      "description": {
+        "content": "Execute WQL queries against Workday data sources and retrieve paginated results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d132049b-c9ae-4cdf-b908-e074c5acf9dc",
+          "name": "Workday Report Writer Execute a WQL Query",
+          "request": {
+            "name": "Workday Report Writer Execute a WQL Query",
+            "description": {
+              "content": "Execute a Workday Query Language (WQL) query and retrieve paginated results. Supports SQL-like syntax with SELECT, FROM, WHERE, ORDER BY, and LIMIT clauses. WQL also supports special operators such as startsWith, contains, and endsWith for text filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5affc280-0498-4040-a2d9-c2ddb4cf38bf",
+              "name": "Query executed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 3965,\n  \"data\": [\n    {\n      \"key_0\": true,\n      \"key_1\": 5303.731265371596\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fae3cdeb-ccaa-46d0-b584-b3ae010697bc",
+              "name": "The WQL query was malformed, contained invalid syntax, or referenced a non-existent data source or field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d0b76ab-dcb9-4ba3-a3d6-d16410951bb7",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday data center hostname, varies by tenant deployment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "hostname"
+    },
+    {
+      "description": {
+        "content": "Workday tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/ccx/api/wql/v1/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "85746d8f-1b21-418f-8344-2fe81f753ca3",
+    "name": "Workday Report Writer Workday WQL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Workday Query Language (WQL) API enabling SQL-like querying of Workday data through REST endpoints. Allows developers to construct queries using SELECT, FROM, WHERE, ORDER BY, and LIMIT syntax to retrieve report data with high performance. Supports pagination, data source discovery, and field metadata retrieval, controlled via OAuth 2.0 bearer tokens.\n\nContact Support:\n Name: Workday Support",
+      "type": "text/plain"
+    }
+  }
+}

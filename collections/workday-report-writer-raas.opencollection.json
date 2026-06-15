@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Report Writer Workday Report-as-a-Service (RaaS) REST API",
+    "version": "v45.2"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Report Writer Execute a Custom Report via RaaS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/ccx/service/customreport2/{tenant}/:reportOwner/:reportName",
+            "params": [
+              {
+                "name": "reportOwner",
+                "value": "",
+                "type": "path",
+                "description": "Username of the Integration System User (ISU) that owns the report"
+              },
+              {
+                "name": "reportName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Output format for the report data. Determines the content type of the response."
+              },
+              {
+                "name": "Worker_Type!WID",
+                "value": "",
+                "type": "query",
+                "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition."
+              }
+            ]
+          },
+          "docs": "Executes a custom Workday report that has been enabled as a web service and returns the report data in the specified format. Report prompts can be passed as query parameters to filter results. Only Advanced-type reports with the Enable As Web Service option selected are accessible through this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

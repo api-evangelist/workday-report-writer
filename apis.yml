@@ -64,7 +64,7 @@ apis:
         url: openapi/workday-report-writer-raas-openapi.yml
       - type: Authentication
         url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
-      - type: SDK
+      - type: SDKs
         url: https://github.com/Workday/raas-python
         title: Python SDK
       - type: CLI
@@ -123,7 +123,7 @@ apis:
         title: Prism Table Schema Definition
       - type: Authentication
         url: https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html
-      - type: SDK
+      - type: SDKs
         url: https://github.com/Workday/prism-python
         title: Python SDK
       - type: CLI
@@ -160,7 +160,7 @@ common:
     url: https://www.workday.com/en-us/services/support.html
   - type: Blog
     url: https://blog.workday.com/en-us/technology.html
-  - type: SignUp
+  - type: Signup
     url: https://resourcecenter.workday.com/
   - type: Console
     url: https://developer.workday.com/about

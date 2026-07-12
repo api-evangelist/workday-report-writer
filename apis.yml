@@ -136,6 +136,12 @@ apis:
         email: support@workday.com
         url: https://www.workday.com/en-us/company/contact-us.html
 common:
+  - type: TrustCenter
+    url: security/workday-report-writer-trust-center.yml
+  - type: DomainSecurity
+    url: security/workday-report-writer-domain-security.yml
+  - type: Authentication
+    url: authentication/workday-report-writer-authentication.yml
   - type: Portal
     url: https://developer.workday.com/about
   - type: GettingStarted

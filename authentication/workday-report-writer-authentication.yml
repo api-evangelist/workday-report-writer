@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/workday-report-writer-prism-analytics-openapi.yml, openapi/workday-report-writer-raas-openapi.yml,
+  openapi/workday-report-writer-wql-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth 2.0 bearer token obtained from Workday token endpoint. Requires the Prism
+    Analytics scope.
+  sources:
+  - openapi/workday-report-writer-prism-analytics-openapi.yml
+  - openapi/workday-report-writer-raas-openapi.yml
+  - openapi/workday-report-writer-wql-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication using an Integration System User (ISU) username and
+    password configured in Workday
+  sources:
+  - openapi/workday-report-writer-raas-openapi.yml

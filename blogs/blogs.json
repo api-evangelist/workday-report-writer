@@ -2,13 +2,14 @@
   "repo": "workday-report-writer",
   "feeds": [
     {
-      "source": "https://blog.workday.com/en-us/technology.html",
-      "feed_url": "",
+      "source": "https://www.workday.com/en-us/services/support.html",
+      "feed_url": "https://www.workday.com/en-us/services/support.html",
+      "title": "",
       "saved": 0,
-      "method": "agent-scrape"
+      "method": "none"
     }
   ],
-  "post_count": 3,
-  "fetched": "2026-06-27T13:21:34Z",
-  "agent_pulled": "2026-06-27"
+  "post_count": 6,
+  "fetched": "2026-07-11T11:50:51Z",
+  "agent_pulled": "2026-07-04"
 }

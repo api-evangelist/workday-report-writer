@@ -136,6 +136,8 @@ apis:
         email: support@workday.com
         url: https://www.workday.com/en-us/company/contact-us.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/workday-report-writer-agentic-access.yml
   - type: TrustCenter
     url: security/workday-report-writer-trust-center.yml
   - type: DomainSecurity

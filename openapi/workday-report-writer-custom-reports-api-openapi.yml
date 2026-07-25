@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: Workday Report Writer Workday Prism Analytics Buckets Custom Reports API
+  description: REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.
+  version: v3
+  contact:
+    name: Workday Support
+    url: https://www.workday.com/en-us/company/contact-us.html
+  termsOfService: https://www.workday.com/en-us/legal.html
+servers:
+- url: https://{hostname}/api/prismAnalytics/v3/{tenant}
+  description: Workday Prism Analytics Production
+  variables:
+    hostname:
+      description: Workday data center hostname, varies by tenant deployment
+      default: wd2-impl-services1.workday.com
+    tenant:
+      description: Workday tenant name
+      default: your-tenant
+security:
+- bearerAuth: []
+tags:
+- name: Custom Reports
+  description: Execute custom reports exposed as web service endpoints, returning data in multiple formats including JSON, CSV, and XML
+paths:
+  /{reportOwner}/{reportName}:
+    get:
+      operationId: executeCustomReportAsService
+      summary: Workday Report Writer Execute a Custom Report via RaaS
+      description: Executes a custom Workday report that has been enabled as a web service and returns the report data in the specified format. Report prompts can be passed as query parameters to filter results. Only Advanced-type reports with the Enable As Web Service option selected are accessible through this endpoint.
+      tags:
+      - Custom Reports
+      parameters:
+      - $ref: '#/components/parameters/reportOwner'
+      - $ref: '#/components/parameters/reportName'
+      - name: format
+        in: query
+        description: Output format for the report data. Determines the content type of the response.
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - simplexml
+          - xml
+          - rss
+          - gdata
+          default: json
+      - name: Worker_Type!WID
+        in: query
+        description: Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Report data retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RaaSReportResponse'
+            text/csv:
+              schema:
+                type: string
+                description: Report data in CSV format
+            application/xml:
+              schema:
+                type: string
+                description: Report data in XML format
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '408':
+          description: Request timed out. Workday enforces a 30-minute timeout for report execution. Consider reducing the data set size or using prompt parameters to filter results.
+components:
+  parameters:
+    reportOwner:
+      name: reportOwner
+      in: path
+      required: true
+      description: Username of the Integration System User (ISU) that owns the report
+      schema:
+        type: string
+    reportName:
+      name: reportName
+      in: path
+      required: true
+      description: Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions
+    NotFound:
+      description: The specified report was not found or has not been enabled as a web service
+    BadRequest:
+      description: The request was malformed, contained invalid prompt values, or referenced an invalid report
+  schemas:
+    RaaSReportResponse:
+      type: object
+      description: JSON response wrapper for a RaaS report execution containing the report data and metadata
+      properties:
+        Report_Entry:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+          description: Array of report rows, where each object represents a row with property names matching the report column XML aliases
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token obtained from Workday token endpoint. Requires the Prism Analytics scope.
+externalDocs:
+  description: Workday Prism Analytics API Documentation
+  url: https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html

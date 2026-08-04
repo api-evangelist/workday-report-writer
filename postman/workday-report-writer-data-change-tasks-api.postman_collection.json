@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "0f6f00a3-342e-41a3-b986-52b718a57a91",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Data Change Tasks API",
+    "description": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:04.000Z",
+    "updatedAt": "2026-07-28T03:32:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0f6f00a3-342e-41a3-b986-52b718a57a91"
+  },
+  "item": [
+    {
+      "name": "dataChangeTasks",
+      "item": [
+        {
+          "name": "{taskId}",
+          "item": [
+            {
+              "name": "Workday Report Writer Get a Data Change Task",
+              "id": "a9b3c163-4b93-4d1a-a393-739dd9311f10",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataChangeTasks/:taskId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataChangeTasks",
+                    ":taskId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "465d6402-7c22-4e8e-81c1-cad061790773",
+                      "key": "taskId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the data change task"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific data change task including its status, operation type, row counts, and any error information."
+              },
+              "response": [
+                {
+                  "id": "296693f1-1629-4c17-a434-55479a8a62b1",
+                  "name": "Data change task details retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataChangeTasks/:taskId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataChangeTasks",
+                        ":taskId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"status\": \"Queued\",\n  \"operation\": \"Upsert\",\n  \"targetTable\": {\n    \"id\": \"<string>\",\n    \"descriptor\": \"<string>\"\n  },\n  \"rowsInserted\": \"<integer>\",\n  \"rowsUpdated\": \"<integer>\",\n  \"rowsDeleted\": \"<integer>\",\n  \"rowsFailed\": \"<integer>\",\n  \"startedOn\": \"<dateTime>\",\n  \"completedOn\": \"<dateTime>\",\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:32:05.000Z",
+                  "updatedAt": "2026-07-28T03:32:05.000Z",
+                  "uid": "35240-296693f1-1629-4c17-a434-55479a8a62b1"
+                },
+                {
+                  "id": "9788590b-39b7-443c-b385-d04c5d03a0ae",
+                  "name": "Authentication credentials are missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataChangeTasks/:taskId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataChangeTasks",
+                        ":taskId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:05.000Z",
+                  "updatedAt": "2026-07-28T03:32:05.000Z",
+                  "uid": "35240-9788590b-39b7-443c-b385-d04c5d03a0ae"
+                },
+                {
+                  "id": "471dca3b-c6a5-4e0f-9dad-3464485a9bc6",
+                  "name": "The specified resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataChangeTasks/:taskId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataChangeTasks",
+                        ":taskId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:05.000Z",
+                  "updatedAt": "2026-07-28T03:32:05.000Z",
+                  "uid": "35240-471dca3b-c6a5-4e0f-9dad-3464485a9bc6"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:05.000Z",
+              "updatedAt": "2026-07-28T03:32:05.000Z",
+              "uid": "35240-a9b3c163-4b93-4d1a-a393-739dd9311f10"
+            }
+          ],
+          "id": "7639362d-b53a-45ba-9a90-c811d99431cd",
+          "createdAt": "2026-07-28T03:32:05.000Z",
+          "updatedAt": "2026-07-28T03:32:05.000Z",
+          "uid": "35240-7639362d-b53a-45ba-9a90-c811d99431cd"
+        },
+        {
+          "name": "Workday Report Writer List Data Change Tasks",
+          "id": "fad1421a-673b-4a58-befb-77f1beb80ee4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dataChangeTasks?limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dataChangeTasks"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of data change tasks. Data change tasks represent operations that modify data in Prism Analytics tables, including inserts, updates, upserts, and deletes."
+          },
+          "response": [
+            {
+              "id": "37db6266-0cae-4a65-af9e-016a4b6eecef",
+              "name": "Data change tasks retrieved successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataChangeTasks?limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataChangeTasks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"status\": \"Error\",\n      \"operation\": \"Upsert\",\n      \"targetTable\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"rowsInserted\": \"<integer>\",\n      \"rowsUpdated\": \"<integer>\",\n      \"rowsDeleted\": \"<integer>\",\n      \"rowsFailed\": \"<integer>\",\n      \"startedOn\": \"<dateTime>\",\n      \"completedOn\": \"<dateTime>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"status\": \"Queued\",\n      \"operation\": \"Update\",\n      \"targetTable\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"rowsInserted\": \"<integer>\",\n      \"rowsUpdated\": \"<integer>\",\n      \"rowsDeleted\": \"<integer>\",\n      \"rowsFailed\": \"<integer>\",\n      \"startedOn\": \"<dateTime>\",\n      \"completedOn\": \"<dateTime>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:05.000Z",
+              "updatedAt": "2026-07-28T03:32:05.000Z",
+              "uid": "35240-37db6266-0cae-4a65-af9e-016a4b6eecef"
+            },
+            {
+              "id": "a97f9714-b5f1-4cfb-bc57-3d3203c2377e",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataChangeTasks?limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataChangeTasks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:05.000Z",
+              "updatedAt": "2026-07-28T03:32:05.000Z",
+              "uid": "35240-a97f9714-b5f1-4cfb-bc57-3d3203c2377e"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:05.000Z",
+          "updatedAt": "2026-07-28T03:32:05.000Z",
+          "uid": "35240-fad1421a-673b-4a58-befb-77f1beb80ee4"
+        }
+      ],
+      "id": "710b0cd1-1c09-4a72-8ea4-3c4318891d91",
+      "createdAt": "2026-07-28T03:32:05.000Z",
+      "updatedAt": "2026-07-28T03:32:05.000Z",
+      "uid": "35240-710b0cd1-1c09-4a72-8ea4-3c4318891d91"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}"
+    }
+  ]
+}

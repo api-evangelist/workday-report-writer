@@ -1,0 +1,379 @@
+{
+  "info": {
+    "_postman_id": "a0a102f9-f2d9-41b0-a183-83d5b4a73f63",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Datasets API",
+    "description": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:07.000Z",
+    "updatedAt": "2026-07-28T03:32:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a0a102f9-f2d9-41b0-a183-83d5b4a73f63"
+  },
+  "item": [
+    {
+      "name": "datasets",
+      "item": [
+        {
+          "name": "{datasetId}",
+          "item": [
+            {
+              "name": "Workday Report Writer Get a Prism Analytics Dataset",
+              "id": "747994e4-417c-4869-bb1f-a068a50b77fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:datasetId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4e55c440-a1b9-4eda-b28e-ca071c7d4c86",
+                      "key": "datasetId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific Prism Analytics dataset including its schema, row count, and last refresh timestamp."
+              },
+              "response": [
+                {
+                  "id": "be77b62b-e282-4e22-9fc4-33a85c78d26e",
+                  "name": "Dataset details retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"rowCount\": \"<integer>\",\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"fieldId\": \"<string>\",\n      \"ordinal\": \"<integer>\",\n      \"type\": {\n        \"id\": \"Instance\",\n        \"descriptor\": \"<string>\"\n      },\n      \"required\": \"<boolean>\",\n      \"externalId\": \"<boolean>\",\n      \"precision\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"fieldId\": \"<string>\",\n      \"ordinal\": \"<integer>\",\n      \"type\": {\n        \"id\": \"Numeric\",\n        \"descriptor\": \"<string>\"\n      },\n      \"required\": \"<boolean>\",\n      \"externalId\": \"<boolean>\",\n      \"precision\": \"<integer>\"\n    }\n  ],\n  \"createdOn\": \"<dateTime>\",\n  \"updatedOn\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T03:32:07.000Z",
+                  "updatedAt": "2026-07-28T03:32:07.000Z",
+                  "uid": "35240-be77b62b-e282-4e22-9fc4-33a85c78d26e"
+                },
+                {
+                  "id": "b1c636ee-dd2e-4acc-8f69-0f7e18290195",
+                  "name": "Authentication credentials are missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:07.000Z",
+                  "updatedAt": "2026-07-28T03:32:07.000Z",
+                  "uid": "35240-b1c636ee-dd2e-4acc-8f69-0f7e18290195"
+                },
+                {
+                  "id": "afb6ad97-b2e8-45a1-865c-33fa9e845bb1",
+                  "name": "The specified resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:07.000Z",
+                  "updatedAt": "2026-07-28T03:32:07.000Z",
+                  "uid": "35240-afb6ad97-b2e8-45a1-865c-33fa9e845bb1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:07.000Z",
+              "updatedAt": "2026-07-28T03:32:07.000Z",
+              "uid": "35240-747994e4-417c-4869-bb1f-a068a50b77fa"
+            }
+          ],
+          "id": "b6cf3b01-f3c9-4224-b13a-91ee477d9a58",
+          "createdAt": "2026-07-28T03:32:07.000Z",
+          "updatedAt": "2026-07-28T03:32:07.000Z",
+          "uid": "35240-b6cf3b01-f3c9-4224-b13a-91ee477d9a58"
+        },
+        {
+          "name": "Workday Report Writer List Prism Analytics Datasets",
+          "id": "fd97346b-2652-4892-9c64-579d29d9a7c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/datasets?limit=20&offset=0&name=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "datasets"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Filter datasets by name",
+                  "key": "name",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of Prism Analytics datasets. Datasets are read-only data collections derived from tables or Workday data sources used in Prism reports and dashboards."
+          },
+          "response": [
+            {
+              "id": "0fc37713-59d5-479e-b5bd-9751aba127bc",
+              "name": "Datasets retrieved successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets?limit=20&offset=0&name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter datasets by name",
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rowCount\": \"<integer>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"fieldId\": \"<string>\",\n          \"ordinal\": \"<integer>\",\n          \"type\": {\n            \"id\": \"Numeric\",\n            \"descriptor\": \"<string>\"\n          },\n          \"required\": \"<boolean>\",\n          \"externalId\": \"<boolean>\",\n          \"precision\": \"<integer>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"fieldId\": \"<string>\",\n          \"ordinal\": \"<integer>\",\n          \"type\": {\n            \"id\": \"Instance\",\n            \"descriptor\": \"<string>\"\n          },\n          \"required\": \"<boolean>\",\n          \"externalId\": \"<boolean>\",\n          \"precision\": \"<integer>\"\n        }\n      ],\n      \"createdOn\": \"<dateTime>\",\n      \"updatedOn\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rowCount\": \"<integer>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"fieldId\": \"<string>\",\n          \"ordinal\": \"<integer>\",\n          \"type\": {\n            \"id\": \"Date\",\n            \"descriptor\": \"<string>\"\n          },\n          \"required\": \"<boolean>\",\n          \"externalId\": \"<boolean>\",\n          \"precision\": \"<integer>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"fieldId\": \"<string>\",\n          \"ordinal\": \"<integer>\",\n          \"type\": {\n            \"id\": \"Text\",\n            \"descriptor\": \"<string>\"\n          },\n          \"required\": \"<boolean>\",\n          \"externalId\": \"<boolean>\",\n          \"precision\": \"<integer>\"\n        }\n      ],\n      \"createdOn\": \"<dateTime>\",\n      \"updatedOn\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:07.000Z",
+              "updatedAt": "2026-07-28T03:32:07.000Z",
+              "uid": "35240-0fc37713-59d5-479e-b5bd-9751aba127bc"
+            },
+            {
+              "id": "28e0bff1-1edf-4cf1-a6c6-9a2c8e6e6db8",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets?limit=20&offset=0&name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter datasets by name",
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:07.000Z",
+              "updatedAt": "2026-07-28T03:32:07.000Z",
+              "uid": "35240-28e0bff1-1edf-4cf1-a6c6-9a2c8e6e6db8"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:07.000Z",
+          "updatedAt": "2026-07-28T03:32:07.000Z",
+          "uid": "35240-fd97346b-2652-4892-9c64-579d29d9a7c4"
+        }
+      ],
+      "id": "42a6fc9f-d73d-47e9-8ed4-f4dc1ee23fd2",
+      "createdAt": "2026-07-28T03:32:07.000Z",
+      "updatedAt": "2026-07-28T03:32:07.000Z",
+      "uid": "35240-42a6fc9f-d73d-47e9-8ed4-f4dc1ee23fd2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}"
+    }
+  ]
+}

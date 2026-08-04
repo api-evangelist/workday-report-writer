@@ -1,0 +1,818 @@
+{
+  "info": {
+    "_postman_id": "56ffeea2-5dde-429e-8ad1-344f892eee25",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Data Sources API",
+    "description": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:05.000Z",
+    "updatedAt": "2026-07-28T03:32:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-56ffeea2-5dde-429e-8ad1-344f892eee25"
+  },
+  "item": [
+    {
+      "name": "dataSources",
+      "item": [
+        {
+          "name": "{dataSourceId}",
+          "item": [
+            {
+              "name": "fields",
+              "item": [
+                {
+                  "name": "Workday Report Writer List Data Source Fields",
+                  "id": "b19b2d50-eff2-456f-b5d1-13ba40d8fde7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataSources/:dataSourceId/fields?limit=20&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataSources",
+                        ":dataSourceId",
+                        "fields"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f3678c1b-e046-4ac8-b924-495b90ffa301",
+                          "key": "dataSourceId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the data source"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the fields (columns) available in a specific data source. These fields can be used in SELECT, WHERE, and ORDER BY clauses of WQL queries."
+                  },
+                  "response": [
+                    {
+                      "id": "0290d0a6-1554-4fad-97c9-ff36a65303eb",
+                      "name": "Data source fields retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/fields?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "fields"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"dataType\": \"Boolean\",\n      \"ordinal\": \"<integer>\",\n      \"isRequired\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"dataType\": \"RichText\",\n      \"ordinal\": \"<integer>\",\n      \"isRequired\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-0290d0a6-1554-4fad-97c9-ff36a65303eb"
+                    },
+                    {
+                      "id": "0f3c48a3-4a3d-4f6c-8002-3bf23f833121",
+                      "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/fields?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "fields"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-0f3c48a3-4a3d-4f6c-8002-3bf23f833121"
+                    },
+                    {
+                      "id": "eebbf030-654c-4009-891b-cbd95e00148a",
+                      "name": "The specified data source was not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/fields?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "fields"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-eebbf030-654c-4009-891b-cbd95e00148a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:32:06.000Z",
+                  "updatedAt": "2026-07-28T03:32:06.000Z",
+                  "uid": "35240-b19b2d50-eff2-456f-b5d1-13ba40d8fde7"
+                }
+              ],
+              "id": "2b9d2b76-7a84-48e2-8c41-b593ac114e57",
+              "createdAt": "2026-07-28T03:32:06.000Z",
+              "updatedAt": "2026-07-28T03:32:06.000Z",
+              "uid": "35240-2b9d2b76-7a84-48e2-8c41-b593ac114e57"
+            },
+            {
+              "name": "filters",
+              "item": [
+                {
+                  "name": "Workday Report Writer List Data Source Filters",
+                  "id": "96491986-e4a8-4f47-bcd3-d36629e10833",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataSources/:dataSourceId/filters?limit=20&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataSources",
+                        ":dataSourceId",
+                        "filters"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2815d8b3-e891-4215-ac1a-94871dffee5a",
+                          "key": "dataSourceId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the data source"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the filterable fields available for a specific data source. These filters can be used as parameters in WQL WHERE clauses with the dataSourceFilter syntax."
+                  },
+                  "response": [
+                    {
+                      "id": "6fd998df-d727-4dac-92a7-c51d80285b09",
+                      "name": "Data source filters retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/filters?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "filters"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"required\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"required\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-6fd998df-d727-4dac-92a7-c51d80285b09"
+                    },
+                    {
+                      "id": "3999491d-0471-4a88-9344-8c15964f6f81",
+                      "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/filters?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "filters"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-3999491d-0471-4a88-9344-8c15964f6f81"
+                    },
+                    {
+                      "id": "6792b992-327d-4fce-8109-329080384d9e",
+                      "name": "The specified data source was not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataSources/:dataSourceId/filters?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataSources",
+                            ":dataSourceId",
+                            "filters"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataSourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:06.000Z",
+                      "updatedAt": "2026-07-28T03:32:06.000Z",
+                      "uid": "35240-6792b992-327d-4fce-8109-329080384d9e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:32:06.000Z",
+                  "updatedAt": "2026-07-28T03:32:06.000Z",
+                  "uid": "35240-96491986-e4a8-4f47-bcd3-d36629e10833"
+                }
+              ],
+              "id": "2604fb6a-c17b-4614-9ceb-75c3152ee71a",
+              "createdAt": "2026-07-28T03:32:06.000Z",
+              "updatedAt": "2026-07-28T03:32:06.000Z",
+              "uid": "35240-2604fb6a-c17b-4614-9ceb-75c3152ee71a"
+            },
+            {
+              "name": "Workday Report Writer Get a Data Source",
+              "id": "f83bbd6b-6d17-4fb5-9f74-b57a17698b7f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataSources/:dataSourceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataSources",
+                    ":dataSourceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e5621fba-0761-404d-8b84-8aa48ba2291e",
+                      "key": "dataSourceId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the data source"
+                    }
+                  ]
+                },
+                "description": "Retrieve details about a specific data source including its description and available fields for use in WQL queries."
+              },
+              "response": [
+                {
+                  "id": "bb675a89-77ac-4e82-9b94-19632d53ab5c",
+                  "name": "Data source details retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataSources/:dataSourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataSources",
+                        ":dataSourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataSourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"descriptor\": \"<string>\",\n  \"href\": \"<uri>\"\n}",
+                  "createdAt": "2026-07-28T03:32:06.000Z",
+                  "updatedAt": "2026-07-28T03:32:06.000Z",
+                  "uid": "35240-bb675a89-77ac-4e82-9b94-19632d53ab5c"
+                },
+                {
+                  "id": "16c4494e-0050-42b6-8f48-619574bb97d8",
+                  "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataSources/:dataSourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataSources",
+                        ":dataSourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataSourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:06.000Z",
+                  "updatedAt": "2026-07-28T03:32:06.000Z",
+                  "uid": "35240-16c4494e-0050-42b6-8f48-619574bb97d8"
+                },
+                {
+                  "id": "8c089f23-435d-4da1-85b5-bc3fe4cac13d",
+                  "name": "The specified data source was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataSources/:dataSourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataSources",
+                        ":dataSourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataSourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:06.000Z",
+                  "updatedAt": "2026-07-28T03:32:06.000Z",
+                  "uid": "35240-8c089f23-435d-4da1-85b5-bc3fe4cac13d"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:06.000Z",
+              "updatedAt": "2026-07-28T03:32:06.000Z",
+              "uid": "35240-f83bbd6b-6d17-4fb5-9f74-b57a17698b7f"
+            }
+          ],
+          "id": "3deb8fe9-752d-4eb4-abba-7c1f1f3e12a3",
+          "createdAt": "2026-07-28T03:32:06.000Z",
+          "updatedAt": "2026-07-28T03:32:06.000Z",
+          "uid": "35240-3deb8fe9-752d-4eb4-abba-7c1f1f3e12a3"
+        },
+        {
+          "name": "Workday Report Writer List Available Data Sources",
+          "id": "0c7ed534-14f4-429a-b635-d0adbde2c06b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dataSources?limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dataSources"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of data sources (tables) available for querying with WQL. Each data source represents a queryable entity in the Workday data model."
+          },
+          "response": [
+            {
+              "id": "b6ebc5df-13cf-495b-a29b-f5d24a55bfcb",
+              "name": "Data sources retrieved successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataSources?limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataSources"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"href\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"href\": \"<uri>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:06.000Z",
+              "updatedAt": "2026-07-28T03:32:06.000Z",
+              "uid": "35240-b6ebc5df-13cf-495b-a29b-f5d24a55bfcb"
+            },
+            {
+              "id": "1a4a9621-9922-4625-9ebc-3ca1fddfbb8a",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataSources?limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataSources"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:06.000Z",
+              "updatedAt": "2026-07-28T03:32:06.000Z",
+              "uid": "35240-1a4a9621-9922-4625-9ebc-3ca1fddfbb8a"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:06.000Z",
+          "updatedAt": "2026-07-28T03:32:06.000Z",
+          "uid": "35240-0c7ed534-14f4-429a-b635-d0adbde2c06b"
+        }
+      ],
+      "id": "bc35a5da-c313-44a1-b293-a5d94ea9e701",
+      "createdAt": "2026-07-28T03:32:06.000Z",
+      "updatedAt": "2026-07-28T03:32:06.000Z",
+      "uid": "35240-bc35a5da-c313-44a1-b293-a5d94ea9e701"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}"
+    }
+  ]
+}

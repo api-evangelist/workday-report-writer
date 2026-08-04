@@ -1,0 +1,393 @@
+{
+  "info": {
+    "_postman_id": "7a3bbb28-86d0-48e1-8bdd-3dd75f001d6d",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Custom Reports API",
+    "description": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:03.000Z",
+    "updatedAt": "2026-07-28T03:32:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7a3bbb28-86d0-48e1-8bdd-3dd75f001d6d"
+  },
+  "item": [
+    {
+      "name": "{reportOwner}",
+      "item": [
+        {
+          "name": "{reportName}",
+          "item": [
+            {
+              "name": "Workday Report Writer Execute a Custom Report via RaaS",
+              "id": "328ac5f8-6313-4ff3-8444-71230ea650cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "query": [
+                    {
+                      "description": "Output format for the report data. Determines the content type of the response.",
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "3642af57-3b5b-4f6d-9adb-1d3d4ae2a80c",
+                      "key": "reportOwner",
+                      "value": "<string>",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "id": "47189913-8f2a-483e-9a0e-c3a261573d40",
+                      "key": "reportName",
+                      "value": "<string>",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    }
+                  ]
+                },
+                "description": "Executes a custom Workday report that has been enabled as a web service and returns the report data in the specified format. Report prompts can be passed as query parameters to filter results. Only Advanced-type reports with the Enable As Web Service option selected are accessible through this endpoint."
+              },
+              "response": [
+                {
+                  "id": "6edd0dbf-e790-42e3-8dc6-d956e41bd76b",
+                  "name": "Report data retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":reportOwner",
+                        ":reportName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Output format for the report data. Determines the content type of the response.",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                          "key": "Worker_Type!WID",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportOwner"
+                        },
+                        {
+                          "key": "reportName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Report_Entry\": [\n    {\n      \"laborise2\": false,\n      \"laborum_042\": -78440258\n    },\n    {\n      \"incididunt_22\": -13819338.596579418,\n      \"Ut0f2\": true\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:32:04.000Z",
+                  "updatedAt": "2026-07-28T03:32:04.000Z",
+                  "uid": "35240-6edd0dbf-e790-42e3-8dc6-d956e41bd76b"
+                },
+                {
+                  "id": "54cab828-e9d9-4840-810e-95b5c73d94c5",
+                  "name": "The request was malformed, contained invalid prompt values, or referenced an invalid report",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":reportOwner",
+                        ":reportName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Output format for the report data. Determines the content type of the response.",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                          "key": "Worker_Type!WID",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportOwner"
+                        },
+                        {
+                          "key": "reportName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:04.000Z",
+                  "updatedAt": "2026-07-28T03:32:04.000Z",
+                  "uid": "35240-54cab828-e9d9-4840-810e-95b5c73d94c5"
+                },
+                {
+                  "id": "0458e793-7b41-4719-8bf4-faa30ed35d43",
+                  "name": "Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":reportOwner",
+                        ":reportName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Output format for the report data. Determines the content type of the response.",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                          "key": "Worker_Type!WID",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportOwner"
+                        },
+                        {
+                          "key": "reportName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:04.000Z",
+                  "updatedAt": "2026-07-28T03:32:04.000Z",
+                  "uid": "35240-0458e793-7b41-4719-8bf4-faa30ed35d43"
+                },
+                {
+                  "id": "b38745ea-b5a8-4469-bc28-8dbef91a8ee1",
+                  "name": "The specified report was not found or has not been enabled as a web service",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":reportOwner",
+                        ":reportName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Output format for the report data. Determines the content type of the response.",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                          "key": "Worker_Type!WID",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportOwner"
+                        },
+                        {
+                          "key": "reportName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:04.000Z",
+                  "updatedAt": "2026-07-28T03:32:04.000Z",
+                  "uid": "35240-b38745ea-b5a8-4469-bc28-8dbef91a8ee1"
+                },
+                {
+                  "id": "9600fef4-bdf4-4486-a11a-ffa2ec8238ea",
+                  "name": "Request timed out. Workday enforces a 30-minute timeout for report execution. Consider reducing the data set size or using prompt parameters to filter results.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:reportOwner/:reportName?format=json&Worker_Type!WID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":reportOwner",
+                        ":reportName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Output format for the report data. Determines the content type of the response.",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition.",
+                          "key": "Worker_Type!WID",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportOwner"
+                        },
+                        {
+                          "key": "reportName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Timeout",
+                  "code": 408,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:04.000Z",
+                  "updatedAt": "2026-07-28T03:32:04.000Z",
+                  "uid": "35240-9600fef4-bdf4-4486-a11a-ffa2ec8238ea"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:04.000Z",
+              "updatedAt": "2026-07-28T03:32:04.000Z",
+              "uid": "35240-328ac5f8-6313-4ff3-8444-71230ea650cb"
+            }
+          ],
+          "id": "549ac32c-5011-4ae2-a976-6f63c5f99ace",
+          "createdAt": "2026-07-28T03:32:04.000Z",
+          "updatedAt": "2026-07-28T03:32:04.000Z",
+          "uid": "35240-549ac32c-5011-4ae2-a976-6f63c5f99ace"
+        }
+      ],
+      "id": "4ec954ea-a228-46cf-9968-c5f2db476fb0",
+      "createdAt": "2026-07-28T03:32:04.000Z",
+      "updatedAt": "2026-07-28T03:32:04.000Z",
+      "uid": "35240-4ec954ea-a228-46cf-9968-c5f2db476fb0"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}"
+    }
+  ]
+}

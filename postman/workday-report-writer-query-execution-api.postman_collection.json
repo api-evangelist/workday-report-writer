@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "5c9a1ee0-59b7-4d24-803b-9e3e5eba8b8d",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Query Execution API",
+    "description": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:08.000Z",
+    "updatedAt": "2026-07-28T03:32:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5c9a1ee0-59b7-4d24-803b-9e3e5eba8b8d"
+  },
+  "item": [
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "Workday Report Writer Execute a WQL Query",
+          "id": "9ce1876b-0340-4874-b9a1-534b7f04b086",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/data?query=<string>&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data"
+              ],
+              "query": [
+                {
+                  "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100",
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "Execute a Workday Query Language (WQL) query and retrieve paginated results. Supports SQL-like syntax with SELECT, FROM, WHERE, ORDER BY, and LIMIT clauses. WQL also supports special operators such as startsWith, contains, and endsWith for text filtering."
+          },
+          "response": [
+            {
+              "id": "51fb1536-a98d-438f-be9a-946cf405b4ba",
+              "name": "Query executed successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data?query=<string>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"data\": [\n    {\n      \"culpa_7\": \"consectetur enim\",\n      \"Lorem9\": \"ea do non ipsum\",\n      \"ullamco0_0\": true\n    },\n    {\n      \"est_d0\": -10984694,\n      \"irure_59d\": false,\n      \"ut3\": -5471973\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:08.000Z",
+              "updatedAt": "2026-07-28T03:32:08.000Z",
+              "uid": "35240-51fb1536-a98d-438f-be9a-946cf405b4ba"
+            },
+            {
+              "id": "91c585f3-dd51-4235-88c1-afd143b56850",
+              "name": "The WQL query was malformed, contained invalid syntax, or referenced a non-existent data source or field",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data?query=<string>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:08.000Z",
+              "updatedAt": "2026-07-28T03:32:08.000Z",
+              "uid": "35240-91c585f3-dd51-4235-88c1-afd143b56850"
+            },
+            {
+              "id": "57e9c70d-3354-4590-b4aa-134a6a52fea1",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data?query=<string>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:08.000Z",
+              "updatedAt": "2026-07-28T03:32:08.000Z",
+              "uid": "35240-57e9c70d-3354-4590-b4aa-134a6a52fea1"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:08.000Z",
+          "updatedAt": "2026-07-28T03:32:08.000Z",
+          "uid": "35240-9ce1876b-0340-4874-b9a1-534b7f04b086"
+        }
+      ],
+      "id": "309f591f-ab01-48f9-9d1c-37b57b8a096b",
+      "createdAt": "2026-07-28T03:32:08.000Z",
+      "updatedAt": "2026-07-28T03:32:08.000Z",
+      "uid": "35240-309f591f-ab01-48f9-9d1c-37b57b8a096b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}"
+    }
+  ]
+}

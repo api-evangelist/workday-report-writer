@@ -1,0 +1,32 @@
+{
+  "provider": "workday-report-writer",
+  "sources": [
+    "workday-report-writer-buckets-api-openapi.yml",
+    "workday-report-writer-custom-reports-api-openapi.yml",
+    "workday-report-writer-data-change-tasks-api-openapi.yml",
+    "workday-report-writer-data-sources-api-openapi.yml",
+    "workday-report-writer-datasets-api-openapi.yml",
+    "workday-report-writer-query-execution-api-openapi.yml",
+    "workday-report-writer-tables-api-openapi.yml",
+    "workday-repos/asor/versions/v1.2.json"
+  ],
+  "outputs": [
+    "workday-report-writer-buckets-api-openapi.yml",
+    "workday-report-writer-custom-reports-api-openapi.yml",
+    "workday-report-writer-data-change-tasks-api-openapi.yml",
+    "workday-report-writer-data-sources-api-openapi.yml",
+    "workday-report-writer-datasets-api-openapi.yml",
+    "workday-report-writer-query-execution-api-openapi.yml",
+    "workday-report-writer-tables-api-openapi.yml",
+    "workday-report-writer-agentdefinition-api-openapi.yml"
+  ],
+  "archived": [
+    "archived workday-repos/asor/versions/v1.2.json"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "discovered stray spec: workday-repos/asor/versions/v1.2.json"
+  ],
+  "skipped": []
+}

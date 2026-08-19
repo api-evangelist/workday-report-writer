@@ -1,0 +1,519 @@
+{
+  "item": [
+    {
+      "id": "4301c2c6-ae3d-48f8-b6a0-036992a55960",
+      "name": "Custom Reports",
+      "description": {
+        "content": "Execute custom reports exposed as web service endpoints, returning data in multiple formats including JSON, CSV, and XML",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f41b33df-5f39-41e3-bc00-17742f15b0f5",
+          "name": "Workday Report Writer Execute a Custom Report via RaaS",
+          "request": {
+            "name": "Workday Report Writer Execute a Custom Report via RaaS",
+            "description": {
+              "content": "Executes a custom Workday report that has been enabled as a web service and returns the report data in the specified format. Report prompts can be passed as query parameters to filter results. Only Advanced-type reports with the Enable As Web Service option selected are accessible through this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":reportOwner",
+                ":reportName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Output format for the report data. Determines the content type of the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "Worker_Type!WID",
+                  "value": "<string>",
+                  "description": "Example prompt parameter for filtering by worker type using the Workday ID (WID). Actual prompt parameters vary per report definition."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportOwner",
+                  "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportName",
+                  "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaebf887-0ee0-47e4-8bc3-c69034bb24e6",
+              "name": "Report data retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportOwner",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportName",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Report_Entry\": [\n    {\n      \"key_0\": 3020,\n      \"key_1\": 2413\n    },\n    {\n      \"key_0\": 3772.2179192747694\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d67cb4b-67d2-448a-96d2-78313d112772",
+              "name": "The request was malformed, contained invalid prompt values, or referenced an invalid report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportOwner",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportName",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "883eed0f-f80b-464a-be7d-b74b72e39839",
+              "name": "Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportOwner",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportName",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82abbe94-2d37-453d-b916-0681f2e99332",
+              "name": "The specified report was not found or has not been enabled as a web service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportOwner",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportName",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54d4eb7c-4ed7-4dc1-80c6-6a71ecdfa3eb",
+              "name": "Request timed out. Workday enforces a 30-minute timeout for report execution. Consider reducing the data set size or using prompt parameters to filter results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportOwner",
+                    ":reportName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "Worker_Type!WID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportOwner",
+                      "description": "(Required) Username of the Integration System User (ISU) that owns the report"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportName",
+                      "description": "(Required) Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service."
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday data center hostname, varies by tenant deployment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "hostname"
+    },
+    {
+      "description": {
+        "content": "Workday tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c57210e2-8c53-429a-802d-a14c4d3d2c97",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Custom Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+      "type": "text/plain"
+    }
+  }
+}

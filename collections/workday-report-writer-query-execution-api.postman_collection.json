@@ -1,0 +1,325 @@
+{
+  "item": [
+    {
+      "id": "b2c0c158-da1a-49e0-ac19-31f2628e1bf3",
+      "name": "Query Execution",
+      "description": {
+        "content": "Execute WQL queries against Workday data sources and retrieve paginated results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "302c568c-4ede-43cc-8e78-e8de179c1766",
+          "name": "Workday Report Writer Execute a WQL Query",
+          "request": {
+            "name": "Workday Report Writer Execute a WQL Query",
+            "description": {
+              "content": "Execute a Workday Query Language (WQL) query and retrieve paginated results. Supports SQL-like syntax with SELECT, FROM, WHERE, ORDER BY, and LIMIT clauses. WQL also supports special operators such as startsWith, contains, and endsWith for text filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) WQL query string using SQL-like syntax. Example: SELECT workdayID, fullName FROM workers WHERE supervisoryOrganization = 'IT Department' ORDER BY fullName LIMIT 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ecdec42-f5a1-4372-9f22-2f58b0ea67dc",
+              "name": "Query executed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 268,\n  \"data\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 4315.441725139196,\n      \"key_2\": 3080.3113892688893,\n      \"key_3\": 8463\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c57eee81-bd4c-4ef7-a995-388b33210307",
+              "name": "The WQL query was malformed, contained invalid syntax, or referenced a non-existent data source or field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9abf092c-b9b4-4bb0-afcf-dbfaa85d3412",
+              "name": "Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday data center hostname, varies by tenant deployment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "hostname"
+    },
+    {
+      "description": {
+        "content": "Workday tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b6b3604c-9985-4dfa-bfef-a65a169f9288",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Query Execution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+      "type": "text/plain"
+    }
+  }
+}

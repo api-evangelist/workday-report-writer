@@ -1,0 +1,500 @@
+{
+  "item": [
+    {
+      "id": "2526462f-ae10-4841-8def-8faa3235bb98",
+      "name": "Datasets",
+      "description": {
+        "content": "Manage Prism Analytics datasets, which are read-only data collections used in Prism reports and dashboards",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f601f8d6-b14a-45e5-9dcb-455fd85a7d51",
+          "name": "Workday Report Writer List Prism Analytics Datasets",
+          "request": {
+            "name": "Workday Report Writer List Prism Analytics Datasets",
+            "description": {
+              "content": "Retrieve a collection of Prism Analytics datasets. Datasets are read-only data collections derived from tables or Workday data sources used in Prism reports and dashboards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter datasets by name"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96335920-e42c-472f-9e9c-97bc2dd94b1b",
+              "name": "Datasets retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 3256,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"rowCount\": 9744,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 6254,\n          \"type\": {\n            \"id\": \"Boolean\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": false,\n          \"precision\": 884\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 2531,\n          \"type\": {\n            \"id\": \"Boolean\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": false,\n          \"precision\": 1578\n        }\n      ],\n      \"createdOn\": \"2023-07-01T13:43:29.036Z\",\n      \"updatedOn\": \"1957-04-05T13:58:45.714Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"rowCount\": 6358,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 3103,\n          \"type\": {\n            \"id\": \"Text\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": true,\n          \"externalId\": false,\n          \"precision\": 9447\n        },\n        {\n          \"name\": \"string\",\n          \"displayName\": \"string\",\n          \"fieldId\": \"string\",\n          \"ordinal\": 9888,\n          \"type\": {\n            \"id\": \"Numeric\",\n            \"descriptor\": \"string\"\n          },\n          \"required\": false,\n          \"externalId\": true,\n          \"precision\": 2212\n        }\n      ],\n      \"createdOn\": \"1969-03-27T22:29:24.947Z\",\n      \"updatedOn\": \"1969-06-09T02:24:53.838Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e518fb53-f41b-4f7d-90e3-b20bbe349c14",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95efd4a0-bc03-48b1-a62c-d070d4d6f567",
+          "name": "Workday Report Writer Get a Prism Analytics Dataset",
+          "request": {
+            "name": "Workday Report Writer Get a Prism Analytics Dataset",
+            "description": {
+              "content": "Retrieve details of a specific Prism Analytics dataset including its schema, row count, and last refresh timestamp.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                },
+                {
+                  "description": "Workday data center hostname, varies by tenant deployment",
+                  "type": "any",
+                  "value": "{{hostname}}",
+                  "key": "hostname"
+                },
+                {
+                  "description": "Workday tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09adb7f5-d5f4-4bd3-94e6-cc85859fb38f",
+              "name": "Dataset details retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"rowCount\": 2414,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 2027,\n      \"type\": {\n        \"id\": \"Date\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": false,\n      \"externalId\": false,\n      \"precision\": 4648\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"fieldId\": \"string\",\n      \"ordinal\": 8364,\n      \"type\": {\n        \"id\": \"Numeric\",\n        \"descriptor\": \"string\"\n      },\n      \"required\": true,\n      \"externalId\": false,\n      \"precision\": 1271\n    }\n  ],\n  \"createdOn\": \"1955-07-14T01:17:10.349Z\",\n  \"updatedOn\": \"1978-06-08T14:40:06.342Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54fd48f1-b646-4d39-9102-3ab4097b8ac1",
+              "name": "Authentication credentials are missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f022a6f-b10f-492b-9499-6c78212d3e6c",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) Unique identifier (WID) of the Prism Analytics dataset"
+                    },
+                    {
+                      "description": "Workday data center hostname, varies by tenant deployment",
+                      "type": "any",
+                      "value": "{{hostname}}",
+                      "key": "hostname"
+                    },
+                    {
+                      "description": "Workday tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday data center hostname, varies by tenant deployment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "hostname"
+    },
+    {
+      "description": {
+        "content": "Workday tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{hostname}}/api/prismAnalytics/v3/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1f7efb6-1f37-4edc-8d1f-05b4ac129348",
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources. Supports creating tables with schema definitions, uploading compressed data files via buckets, and executing data change tasks to apply inserts, updates, upserts, and deletes.\n\nContact Support:\n Name: Workday Support",
+      "type": "text/plain"
+    }
+  }
+}

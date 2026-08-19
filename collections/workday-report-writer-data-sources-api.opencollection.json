@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Report Writer Workday Prism Analytics Buckets Data Sources API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Report Writer List Available Data Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/api/prismAnalytics/v3/{tenant}/dataSources",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of data sources (tables) available for querying with WQL. Each data source represents a queryable entity in the Workday data model."
+        },
+        {
+          "info": {
+            "name": "Workday Report Writer Get a Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/api/prismAnalytics/v3/{tenant}/dataSources/:dataSourceId",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the data source"
+              }
+            ]
+          },
+          "docs": "Retrieve details about a specific data source including its description and available fields for use in WQL queries."
+        },
+        {
+          "info": {
+            "name": "Workday Report Writer List Data Source Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/api/prismAnalytics/v3/{tenant}/dataSources/:dataSourceId/fields",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the data source"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the fields (columns) available in a specific data source. These fields can be used in SELECT, WHERE, and ORDER BY clauses of WQL queries."
+        },
+        {
+          "info": {
+            "name": "Workday Report Writer List Data Source Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}/api/prismAnalytics/v3/{tenant}/dataSources/:dataSourceId/filters",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the data source"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the filterable fields available for a specific data source. These filters can be used as parameters in WQL WHERE clauses with the dataSourceFilter syntax."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -24,6 +24,14 @@ specificationVersion: '0.23'
 tags:
   - Analytics
   - Enterprise
+  - ERP
+  - Financials
+  - HRMS
+  - Reporting
+  - Software-as-a-Service
+tags_raw:
+  - Analytics
+  - Enterprise
   - Erp
   - Financials
   - Hrms
@@ -61,7 +69,8 @@ apis:
   description: To view and maintain Agent Definitions with the Agent System of Record.
   humanURL: https://www.workday.com/en-us/products/financial-management/reporting-analytics.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service
-  tags:
+  tags: []
+  tags_raw:
   - agentDefinition
   properties:
   - type: OpenAPI

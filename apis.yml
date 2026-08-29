@@ -3,6 +3,20 @@ name: Workday Report Writer
 description: >-
   APIs for Workday Report Writer - a tool for creating custom reports and data extracts from Workday HCM and Financial
   systems.
+deliveryModel:
+  model: open-core
+  license: Apache-2.0
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -341,6 +355,12 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Workday/prism-python
 common:
+  - type: IssueTracker
+    url: https://github.com/Workday/raas-python/issues
+  - type: Releases
+    url: https://github.com/Workday/raas-python/releases
+  - type: ContributionGuide
+    url: https://github.com/Workday/raas-python/blob/main/CONTRIBUTING.md
   - type: License
     name: Apache-2.0
     url: https://github.com/Workday/raas-python/blob/main/LICENSE

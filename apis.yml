@@ -38,11 +38,11 @@ specificationVersion: '0.23'
 tags:
   - Analytics
   - Enterprise
-  - Erp
+  - ERP
   - Financials
-  - Hrms
+  - HRMS
   - Reporting
-  - Saas
+  - Software-as-a-Service
 tags_raw:
   - Analytics
   - Enterprise

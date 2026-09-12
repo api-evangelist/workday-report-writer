@@ -356,6 +356,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Workday/prism-python
 common:
+  - type: Website
+    url: https://www.workday.com/
   - type: IssueTracker
     url: https://github.com/Workday/raas-python/issues
   - type: Releases

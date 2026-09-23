@@ -1,32 +1,40 @@
 {
   "provider": "workday-report-writer",
   "sources": [
-    "workday-report-writer-buckets-api-openapi.yml",
-    "workday-report-writer-custom-reports-api-openapi.yml",
-    "workday-report-writer-data-change-tasks-api-openapi.yml",
-    "workday-report-writer-data-sources-api-openapi.yml",
-    "workday-report-writer-datasets-api-openapi.yml",
-    "workday-report-writer-query-execution-api-openapi.yml",
-    "workday-report-writer-tables-api-openapi.yml",
-    "workday-repos/asor/versions/v1.2.json"
+    "_original/v1.2.json",
+    "_original/workday-report-writer-prism-analytics-openapi.yml",
+    "_original/workday-report-writer-raas-openapi.yml",
+    "_original/workday-report-writer-wql-openapi.yml"
   ],
   "outputs": [
+    "workday-report-writer-agentdefinition-api-openapi.yml",
     "workday-report-writer-buckets-api-openapi.yml",
-    "workday-report-writer-custom-reports-api-openapi.yml",
     "workday-report-writer-data-change-tasks-api-openapi.yml",
-    "workday-report-writer-data-sources-api-openapi.yml",
     "workday-report-writer-datasets-api-openapi.yml",
-    "workday-report-writer-query-execution-api-openapi.yml",
     "workday-report-writer-tables-api-openapi.yml",
-    "workday-report-writer-agentdefinition-api-openapi.yml"
+    "workday-report-writer-custom-reports-api-openapi.yml",
+    "workday-report-writer-data-sources-api-openapi.yml",
+    "workday-report-writer-query-execution-api-openapi.yml"
   ],
-  "archived": [
-    "archived workday-repos/asor/versions/v1.2.json"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "discovered stray spec: workday-repos/asor/versions/v1.2.json"
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "v1.2.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "workday-report-writer-prism-analytics-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "workday-report-writer-raas-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "workday-report-writer-wql-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "workday-report-writer-agentdefinition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-buckets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-custom-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-data-change-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-data-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-query-execution-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-report-writer-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

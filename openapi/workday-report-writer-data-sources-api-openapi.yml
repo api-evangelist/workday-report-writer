@@ -132,6 +132,20 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+    dataSourceId:
+      name: dataSourceId
+      in: path
+      required: true
+      description: Unique identifier of the data source
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -140,20 +154,6 @@ components:
         type: integer
         default: 20
         maximum: 100
-    dataSourceId:
-      name: dataSourceId
-      in: path
-      required: true
-      description: Unique identifier of the data source
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
   schemas:
     DataSourceFilter:
       type: object

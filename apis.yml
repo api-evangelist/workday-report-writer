@@ -40,7 +40,7 @@ tags:
   - Analytics
   - Enterprise
   - ERP
-  - Financial
+  - Finance
   - HRMS
   - Reporting
   - Software-as-a-Service
@@ -52,6 +52,7 @@ tags_raw:
   - Hrms
   - Reporting
   - Saas
+  - Financial
 apis:
 - name: Workday Report Writer API
   description: >-
@@ -80,7 +81,7 @@ apis:
     email: support@workday.com
     url: https://www.workday.com/en-us/company/contact-us.html
 - aid: workday-report-writer:workday-report-writer-agentdefinition-api
-  name: Workday Report Writer agentDefinition API
+  name: Workday Report Writer Agent Definition API
   description: To view and maintain Agent Definitions with the Agent System of Record.
   humanURL: https://www.workday.com/en-us/products/financial-management/reporting-analytics.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service

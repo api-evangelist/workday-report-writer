@@ -126,7 +126,28 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    BadRequest:
+      description: The request was malformed or contained invalid data
+    NotFound:
+      description: The specified resource was not found
+    Unauthorized:
+      description: Authentication credentials are missing or invalid
   parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: Unique identifier (WID) of the Prism Analytics table
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -135,21 +156,58 @@ components:
         type: integer
         default: 20
         maximum: 100
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: Unique identifier (WID) of the Prism Analytics table
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
   schemas:
+    Table:
+      type: object
+      description: A Prism Analytics table defining the schema for external data loaded into Workday
+      properties:
+        id:
+          type: string
+          description: Unique identifier (WID) of the table
+        displayName:
+          type: string
+          description: Display name of the table
+        name:
+          type: string
+          description: API name of the table
+        description:
+          type: string
+          description: Description of the table purpose and contents
+        enableForAnalysis:
+          type: boolean
+          description: Whether the table is enabled for use in Prism reports
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableField'
+          description: Schema field definitions for the table
+        rowCount:
+          type: integer
+          description: Current number of rows in the table
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the table was created
+        updatedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the table was last modified
+    FieldType:
+      type: object
+      description: Data type specification for a table field
+      properties:
+        id:
+          type: string
+          description: Type identifier
+          enum:
+          - Text
+          - Numeric
+          - Date
+          - Boolean
+          - Instance
+        descriptor:
+          type: string
+          description: Display name of the field type
     TableCreateRequest:
       type: object
       description: Request body for creating a new Prism Analytics table
@@ -172,22 +230,6 @@ components:
           items:
             $ref: '#/components/schemas/TableField'
           description: Schema field definitions
-    FieldType:
-      type: object
-      description: Data type specification for a table field
-      properties:
-        id:
-          type: string
-          description: Type identifier
-          enum:
-          - Text
-          - Numeric
-          - Date
-          - Boolean
-          - Instance
-        descriptor:
-          type: string
-          description: Display name of the field type
     TableField:
       type: object
       description: A field definition within a Prism Analytics table schema
@@ -225,48 +267,6 @@ components:
         description:
           type: string
           description: Updated description
-    Table:
-      type: object
-      description: A Prism Analytics table defining the schema for external data loaded into Workday
-      properties:
-        id:
-          type: string
-          description: Unique identifier (WID) of the table
-        displayName:
-          type: string
-          description: Display name of the table
-        name:
-          type: string
-          description: API name of the table
-        description:
-          type: string
-          description: Description of the table purpose and contents
-        enableForAnalysis:
-          type: boolean
-          description: Whether the table is enabled for use in Prism reports
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableField'
-          description: Schema field definitions for the table
-        rowCount:
-          type: integer
-          description: Current number of rows in the table
-        createdOn:
-          type: string
-          format: date-time
-          description: Timestamp when the table was created
-        updatedOn:
-          type: string
-          format: date-time
-          description: Timestamp when the table was last modified
-  responses:
-    BadRequest:
-      description: The request was malformed or contained invalid data
-    NotFound:
-      description: The specified resource was not found
-    Unauthorized:
-      description: Authentication credentials are missing or invalid
   securitySchemes:
     bearerAuth:
       type: http

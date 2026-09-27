@@ -75,6 +75,13 @@ paths:
         '408':
           description: Request timed out. Workday enforces a 30-minute timeout for report execution. Consider reducing the data set size or using prompt parameters to filter results.
 components:
+  responses:
+    BadRequest:
+      description: The request was malformed, contained invalid prompt values, or referenced an invalid report
+    NotFound:
+      description: The specified report was not found or has not been enabled as a web service
+    Unauthorized:
+      description: Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions
   schemas:
     RaaSReportResponse:
       type: object
@@ -86,26 +93,19 @@ components:
             type: object
             additionalProperties: true
           description: Array of report rows, where each object represents a row with property names matching the report column XML aliases
-  responses:
-    BadRequest:
-      description: The request was malformed, contained invalid prompt values, or referenced an invalid report
-    NotFound:
-      description: The specified report was not found or has not been enabled as a web service
-    Unauthorized:
-      description: Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions
   parameters:
-    reportOwner:
-      name: reportOwner
-      in: path
-      required: true
-      description: Username of the Integration System User (ISU) that owns the report
-      schema:
-        type: string
     reportName:
       name: reportName
       in: path
       required: true
       description: Name of the custom report as defined in Workday Report Writer. Must be an Advanced-type report enabled as a web service.
+      schema:
+        type: string
+    reportOwner:
+      name: reportOwner
+      in: path
+      required: true
+      description: Username of the Integration System User (ISU) that owns the report
       schema:
         type: string
   securitySchemes:

@@ -76,12 +76,12 @@ paths:
           description: Request timed out. Workday enforces a 30-minute timeout for report execution. Consider reducing the data set size or using prompt parameters to filter results.
 components:
   responses:
-    BadRequest:
-      description: The request was malformed, contained invalid prompt values, or referenced an invalid report
-    NotFound:
-      description: The specified report was not found or has not been enabled as a web service
     Unauthorized:
       description: Authentication credentials are missing, invalid, or the Integration System User lacks the required security group permissions
+    NotFound:
+      description: The specified report was not found or has not been enabled as a web service
+    BadRequest:
+      description: The request was malformed, contained invalid prompt values, or referenced an invalid report
   schemas:
     RaaSReportResponse:
       type: object

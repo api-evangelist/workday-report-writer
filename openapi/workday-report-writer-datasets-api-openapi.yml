@@ -99,7 +99,39 @@ components:
       description: Unique identifier (WID) of the Prism Analytics dataset
       schema:
         type: string
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid
+    NotFound:
+      description: The specified resource was not found
   schemas:
+    TableField:
+      type: object
+      description: A field definition within a Prism Analytics table schema
+      properties:
+        name:
+          type: string
+          description: Field name used in data files and queries
+        displayName:
+          type: string
+          description: Display name shown in the Prism Analytics UI
+        fieldId:
+          type: string
+          description: Unique identifier of the field
+        ordinal:
+          type: integer
+          description: Position index of the field in the schema
+        type:
+          $ref: '#/components/schemas/FieldType'
+        required:
+          type: boolean
+          description: Whether the field is required for data loading
+        externalId:
+          type: boolean
+          description: Whether this field serves as a unique identifier for upsert and delete operations
+        precision:
+          type: integer
+          description: Number of decimal places for numeric fields
     FieldType:
       type: object
       description: Data type specification for a table field
@@ -148,38 +180,6 @@ components:
           type: string
           format: date-time
           description: Timestamp when the dataset was last refreshed
-    TableField:
-      type: object
-      description: A field definition within a Prism Analytics table schema
-      properties:
-        name:
-          type: string
-          description: Field name used in data files and queries
-        displayName:
-          type: string
-          description: Display name shown in the Prism Analytics UI
-        fieldId:
-          type: string
-          description: Unique identifier of the field
-        ordinal:
-          type: integer
-          description: Position index of the field in the schema
-        type:
-          $ref: '#/components/schemas/FieldType'
-        required:
-          type: boolean
-          description: Whether the field is required for data loading
-        externalId:
-          type: boolean
-          description: Whether this field serves as a unique identifier for upsert and delete operations
-        precision:
-          type: integer
-          description: Number of decimal places for numeric fields
-  responses:
-    NotFound:
-      description: The specified resource was not found
-    Unauthorized:
-      description: Authentication credentials are missing or invalid
   securitySchemes:
     bearerAuth:
       type: http

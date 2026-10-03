@@ -51,11 +51,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    BadRequest:
-      description: The WQL query was malformed, contained invalid syntax, or referenced a non-existent data source or field
-    Unauthorized:
-      description: Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope
   parameters:
     offset:
       name: offset
@@ -72,6 +67,11 @@ components:
         type: integer
         default: 20
         maximum: 100
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope
+    BadRequest:
+      description: The WQL query was malformed, contained invalid syntax, or referenced a non-existent data source or field
   schemas:
     WqlQueryResult:
       type: object

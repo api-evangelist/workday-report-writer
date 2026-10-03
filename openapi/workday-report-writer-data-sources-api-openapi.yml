@@ -139,13 +139,6 @@ components:
       schema:
         type: integer
         default: 0
-    dataSourceId:
-      name: dataSourceId
-      in: path
-      required: true
-      description: Unique identifier of the data source
-      schema:
-        type: string
     limit:
       name: limit
       in: query
@@ -154,26 +147,14 @@ components:
         type: integer
         default: 20
         maximum: 100
+    dataSourceId:
+      name: dataSourceId
+      in: path
+      required: true
+      description: Unique identifier of the data source
+      schema:
+        type: string
   schemas:
-    DataSourceFilter:
-      type: object
-      description: A filter definition for a data source that can be used as a parameter in WQL WHERE clauses
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the filter
-        descriptor:
-          type: string
-          description: Display name of the filter
-        alias:
-          type: string
-          description: Alias name used to reference the filter in WQL queries
-        dataType:
-          type: string
-          description: Expected data type for filter values
-        required:
-          type: boolean
-          description: Whether this filter is required when querying
     DataSource:
       type: object
       description: A queryable data source (table) in the Workday data model that can be used in WQL FROM clauses
@@ -218,11 +199,30 @@ components:
         isRequired:
           type: boolean
           description: Whether the field is required for queries
+    DataSourceFilter:
+      type: object
+      description: A filter definition for a data source that can be used as a parameter in WQL WHERE clauses
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the filter
+        descriptor:
+          type: string
+          description: Display name of the filter
+        alias:
+          type: string
+          description: Alias name used to reference the filter in WQL queries
+        dataType:
+          type: string
+          description: Expected data type for filter values
+        required:
+          type: boolean
+          description: Whether this filter is required when querying
   responses:
-    NotFound:
-      description: The specified data source was not found
     Unauthorized:
       description: Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope
+    NotFound:
+      description: The specified data source was not found
   securitySchemes:
     bearerAuth:
       type: http

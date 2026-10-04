@@ -357,6 +357,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Workday/prism-python
 common:
+  - type: CapabilityMap
+    url: capabilities/workday-report-writer-capability-edges.yml
+    name: Workday Report Writer Business Capability Map
   - type: Website
     url: https://www.workday.com/
   - type: IssueTracker

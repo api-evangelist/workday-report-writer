@@ -131,44 +131,26 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return per page
-      schema:
-        type: integer
-        default: 20
-        maximum: 100
-    dataSourceId:
-      name: dataSourceId
-      in: path
-      required: true
-      description: Unique identifier of the data source
-      schema:
-        type: string
   schemas:
-    DataSource:
+    DataSourceFilter:
       type: object
-      description: A queryable data source (table) in the Workday data model that can be used in WQL FROM clauses
+      description: A filter definition for a data source that can be used as a parameter in WQL WHERE clauses
       properties:
         id:
           type: string
-          description: Unique identifier of the data source
+          description: Unique identifier of the filter
         descriptor:
           type: string
-          description: Display name of the data source
-        href:
+          description: Display name of the filter
+        alias:
           type: string
-          format: uri
-          description: API URL for the data source resource
+          description: Alias name used to reference the filter in WQL queries
+        dataType:
+          type: string
+          description: Expected data type for filter values
+        required:
+          type: boolean
+          description: Whether this filter is required when querying
     DataSourceField:
       type: object
       description: A field (column) within a data source that can be used in WQL SELECT, WHERE, and ORDER BY clauses
@@ -199,25 +181,43 @@ components:
         isRequired:
           type: boolean
           description: Whether the field is required for queries
-    DataSourceFilter:
+    DataSource:
       type: object
-      description: A filter definition for a data source that can be used as a parameter in WQL WHERE clauses
+      description: A queryable data source (table) in the Workday data model that can be used in WQL FROM clauses
       properties:
         id:
           type: string
-          description: Unique identifier of the filter
+          description: Unique identifier of the data source
         descriptor:
           type: string
-          description: Display name of the filter
-        alias:
+          description: Display name of the data source
+        href:
           type: string
-          description: Alias name used to reference the filter in WQL queries
-        dataType:
-          type: string
-          description: Expected data type for filter values
-        required:
-          type: boolean
-          description: Whether this filter is required when querying
+          format: uri
+          description: API URL for the data source resource
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    dataSourceId:
+      name: dataSourceId
+      in: path
+      required: true
+      description: Unique identifier of the data source
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Authentication credentials are missing or invalid, or the OAuth 2.0 token lacks the required Workday Query Language scope

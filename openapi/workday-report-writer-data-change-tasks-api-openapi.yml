@@ -94,11 +94,6 @@ components:
       description: Unique identifier of the data change task
       schema:
         type: string
-  responses:
-    Unauthorized:
-      description: Authentication credentials are missing or invalid
-    NotFound:
-      description: The specified resource was not found
   schemas:
     DataChangeTask:
       type: object
@@ -160,6 +155,11 @@ components:
         errorMessage:
           type: string
           description: Error details if the task failed
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid
+    NotFound:
+      description: The specified resource was not found
   securitySchemes:
     bearerAuth:
       type: http

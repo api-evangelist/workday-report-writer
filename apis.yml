@@ -357,6 +357,10 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Workday/prism-python
 common:
+  - type: Plans
+    url: plans/workday-report-writer-plans-pricing.yml
+  - type: FinOps
+    url: finops/workday-report-writer-finops.yml
   - type: CapabilityMap
     url: capabilities/workday-report-writer-capability-edges.yml
     name: Workday Report Writer Business Capability Map

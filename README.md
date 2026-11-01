@@ -1,4 +1,4 @@
-# Workday Report Writer (workday-report-writer)
+# Workday Report Writer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,151 +66,162 @@
 
 APIs for Workday Report Writer - a tool for creating custom reports and data extracts from Workday HCM and Financial systems.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/workday-report-writer/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/workday-report-writer/refs/heads/main/apis.yml)
+**Areas:** Analytics · Enterprise · ERP · Finance · HRMS · Reporting · Software-as-a-Service
 
-## Tags
+## Workday Report Writer on APIs.io
 
-- Analytics
-- Enterprise
-- Erp
-- Financials
-- Hrms
-- Reporting
-- Saas
+Everything profiled for Workday Report Writer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/workday-report-writer/](https://apis.io/providers/workday-report-writer/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+- [Workday Report Writer API](https://apis.io/apis/workday-report-writer/workday-report-writer-api/) — SOAP web service API for creating, managing, and executing custom reports in Workday using Report Writer functionality. Provides programmatic access to…
+- [Workday Report Writer Agent Definition API](https://apis.io/apis/workday-report-writer/workday-report-writer-agentdefinition-api/) — To view and maintain Agent Definitions with the Agent System of Record.
+- [Workday Report Writer Buckets API](https://apis.io/apis/workday-report-writer/workday-report-writer-buckets-api/) — Manage file upload buckets for staging compressed data files before executing data change tasks against tables
+- [Workday Report Writer Custom Reports API](https://apis.io/apis/workday-report-writer/workday-report-writer-custom-reports-api/) — Execute custom reports exposed as web service endpoints, returning data in multiple formats including JSON, CSV, and XML
+- [Workday Report Writer Data Change Tasks API](https://apis.io/apis/workday-report-writer/workday-report-writer-data-change-tasks-api/) — Execute data change tasks to load, update, or delete data in Prism Analytics tables using files uploaded to buckets
+- [Workday Report Writer Data Sources API](https://apis.io/apis/workday-report-writer/workday-report-writer-data-sources-api/) — Discover available data sources (tables) that can be queried using WQL, including their fields and filter definitions
+- [Workday Report Writer Datasets API](https://apis.io/apis/workday-report-writer/workday-report-writer-datasets-api/) — Manage Prism Analytics datasets, which are read-only data collections used in Prism reports and dashboards
+- [Workday Report Writer Query Execution API](https://apis.io/apis/workday-report-writer/workday-report-writer-query-execution-api/) — Execute WQL queries against Workday data sources and retrieve paginated results
+- [Workday Report Writer Tables API](https://apis.io/apis/workday-report-writer/workday-report-writer-tables-api/) — Create and manage Prism Analytics tables that define the schema for external data loaded into Workday for reporting and analytics
 
-## APIs
+### Published properties
 
-### Workday Report Writer API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-SOAP web service API for creating, managing, and executing custom reports in Workday using Report Writer functionality. Provides programmatic access to report definitions, calculated fields, and report output across HCM and Financial Management modules.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.workday.com/en-us/products/financial-management/reporting-analytics.html](https://www.workday.com/en-us/products/financial-management/reporting-analytics.html)
-- **Base URL:** `https://wd2-impl-services1.workday.com/ccx/service`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Workday Report Writer Agentic Access](https://apis.io/agentic-access/workday-report-writer/workday-report-writer-agentic-access/)
 
-- Analytics
-- Custom Reports
-- Data Extraction
-- Reports
-- SOAP
+#### JSON Schema (1)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
-- [API Reference](https://community.workday.com/sites/default/files/file-hosting/productionapi/Report_as_a_Service/v41.0/Report_as_a_Service.html)
-- [Authentication](https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html)
-- [Postman Collection](collections/workday-report-writer-prism-analytics.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-prism-analytics.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/workday-report-writer-raas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-raas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/workday-report-writer-wql.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-wql.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Workday Prism Analytics Table Schema](https://apis.io/schemas/workday-report-writer/workday-report-writer-prism-table/)
 
-### Workday Report-as-a-Service (RaaS) REST API
+#### Collections (19)
 
-REST API that exposes custom Workday reports as web service endpoints. Advanced-type reports enabled as web services can be consumed via RESTful endpoints, returning data in JSON, CSV, XML, and other formats. Supports query parameters for report prompts and filtering.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://community.workday.com/api](https://community.workday.com/api)
-- **Base URL:** `https://wd2-impl-services1.workday.com/ccx/service/customreport2`
+- [Workday Report Writer Workday Prism Analytics Buckets agentDefinition API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-agentdefinition-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-buckets-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Custom Reports API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-custom-reports-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Data Change Tasks API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-data-change-tasks-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Data Sources API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-data-sources-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Datasets API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-datasets-api/)
+- [Workday Report Writer Workday Prism Analytics API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-prism-analytics/)
+- [Workday Report Writer Workday Prism Analytics Buckets Query Execution API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-query-execution-api/)
+- [Workday Report Writer Workday Report-as-a-Service (RaaS) REST API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-raas/)
+- [Workday Report Writer Workday Prism Analytics Buckets Tables API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-tables-api/)
+- [Workday Report Writer Workday WQL API](https://apis.io/collections/workday-report-writer/open-workday-report-writer-wql/)
+- [Workday Report Writer Workday Prism Analytics Buckets agentDefinition API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-agentdefinition-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-buckets-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Custom Reports API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-custom-reports-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Data Change Tasks API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-data-change-tasks-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Data Sources API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-data-sources-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Datasets API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-datasets-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Query Execution API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-query-execution-api/)
+- [Workday Report Writer Workday Prism Analytics Buckets Tables API](https://apis.io/collections/workday-report-writer/postman-workday-report-writer-tables-api/)
 
-#### Tags
+#### Governance rules (1)
 
-- Custom Reports
-- Data Export
-- Report as a Service
-- Reports
-- REST
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Workday Report Writer — jsonschema rules](https://apis.io/rules/workday-report-writer/workday-report-writer-jsonschema-spectral-rules/)
 
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Workday Report Writer Authentication](https://apis.io/security/workday-report-writer/workday-report-writer-authentication/)
+- [Workday Report Writer Domain Security](https://apis.io/security/workday-report-writer/workday-report-writer-domain-security/)
+- [Workday Report Writer Trust Center](https://apis.io/security/workday-report-writer/workday-report-writer-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Workday Report Writer Plans Pricing](https://apis.io/plans/workday-report-writer/workday-report-writer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Workday Report Writer Rate Limits](https://apis.io/rate-limits/workday-report-writer/workday-report-writer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Workday Report Writer Finops](https://apis.io/finops/workday-report-writer/workday-report-writer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.workday.com/)
 - [Documentation](https://community.workday.com/api)
-- [OpenAPI](openapi/workday-report-writer-raas-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/workday-report-writer-raas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-raas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html)
-- [SDK](https://github.com/Workday/raas-python)
-- [C L I](https://github.com/Workday/raas-python)
-- [GitHub Repository](https://github.com/Workday/raas-python)
-
-### Workday WQL API
-
-Workday Query Language (WQL) API enabling SQL-like querying of Workday data through REST endpoints. Allows developers to construct queries using SELECT, FROM, WHERE, ORDER BY, and LIMIT syntax to retrieve report data with high performance, controlled via OAuth 2.0 tokens.
-
-- **Human URL:** [https://community.workday.com/sites/default/files/file-hosting/restapi/index.html](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html)
-- **Base URL:** `https://wd2-impl-services1.workday.com/ccx/api/wql`
-
-#### Tags
-
-- Analytics
-- Data Access
-- Query Language
-- Reporting
-
-#### Properties
-
-- [Documentation](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html)
-- [OpenAPI](openapi/workday-report-writer-wql-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/workday-report-writer-wql.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-wql.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html)
-
-### Workday Prism Analytics API
-
-REST API for working with Workday Prism Analytics tables, datasets, and data change tasks. Enables programmatic loading of external data into Prism Analytics for advanced reporting and analytics that combines internal Workday data with external sources.
-
-- **Human URL:** [https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html](https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html)
-- **Base URL:** `https://wd2-impl-services1.workday.com/ccx/api/prismAnalytics`
-
-#### Tags
-
-- Analytics
-- Data Loading
-- Datasets
-- Prism Analytics
-
-#### Properties
-
-- [Documentation](https://doc.workday.com/admin-guide/en-us/workday-prism-analytics/workday-prism-analytics-api.html)
-- [OpenAPI](openapi/workday-report-writer-prism-analytics-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/workday-report-writer-prism-analytics.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/workday-report-writer-prism-analytics.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/workday-report-writer-prism-table-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Authentication](https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html)
-- [SDK](https://github.com/Workday/prism-python)
-- [C L I](https://github.com/Workday/prism-python)
-- [GitHub Repository](https://github.com/Workday/prism-python)
-
-## Common Properties
-
-- [Portal](https://developer.workday.com/about)
-- [Getting Started](https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/KfHiRHLBJB0O63TxIyZCFA)
-- [Documentation](https://community.workday.com/api)
-- [Authentication](https://doc.workday.com/admin-guide/en-us/workday-api/authentication/index.html)
-- [Sandbox](https://community.workday.com/articles/6394)
-- [Hub](https://community.workday.com/)
-- [Rate Limits](https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/a3a_TL5Tde61ZFJKLtycjg)
-- [Terms of Service](https://www.workday.com/en-us/legal.html)
-- [Privacy Policy](https://www.workday.com/en-us/privacy.html)
-- [Status Page](https://community.workday.com/trust/status)
+- [Getting started](https://doc.workday.com/reader/J1YvI9CYZUWl1U7_PSHyHA/KfHiRHLBJB0O63TxIyZCFA)
+- [API reference](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
 - [Support](https://www.workday.com/en-us/services/support.html)
 - [Blog](https://blog.workday.com/en-us/technology.html)
-- [Sign Up](https://resourcecenter.workday.com/)
-- [Console](https://developer.workday.com/about)
-- [GitHub Organization](https://github.com/Workday)
-- [API Reference](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Terms of service](https://www.workday.com/en-us/legal.html)
+- [Privacy policy](https://www.workday.com/en-us/privacy.html)
+- [GitHub](https://github.com/Workday)
+- [Status](https://community.workday.com/trust/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 51.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 56.3 |
+| Contract governance | 9.8 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 47.4 |
+
+**Agent readiness 27.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/workday-report-writer/](https://apis.io/providers/workday-report-writer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Workday Report Writer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/workday-report-writer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).

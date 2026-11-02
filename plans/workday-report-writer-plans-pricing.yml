@@ -1,0 +1,61 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Workday Report Writer
+providerId: workday-report-writer
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Analytics
+  - Enterprise
+  - Reporting
+  - HCM
+description: Workday Report Writer is the in-product reporting capability of the Workday tenant; it is included with the Workday subscription and is not licensed or priced as a separate product. There is no public price page because there is no separate SKU.
+sources:
+  - https://www.workday.com/en-us/enterprise-resource-planning.html
+notes: Report Writer is an included capability rather than a priced product. Scaffold Free / Pro / Enterprise tiers have been collapsed.
+plans:
+  - id: workday-report-writer-included
+    name: Included with Workday Subscription
+    type: enterprise
+    description: Report Writer (custom report definition, calculated fields, and report-as-a-service URLs / web service exposures) is delivered as part of every Workday tenant. Costs are absorbed in the parent tenant subscription rather than billed separately.
+    entries:
+      - label: Report Writer Capability
+        name: report_writer_capability
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: included with Workday tenant subscription
+        userMultiplied: false
+    elements:
+      - name: Custom Report Definition
+      - name: Calculated Fields
+      - name: Report-as-a-Service URLs
+      - name: Web Service Reports
+      - name: Bundled with Workday Tenant
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Included with Workday Subscription
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year

@@ -11,6 +11,12 @@ artifacts:
   capabilities/workday-report-writer-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/workday-report-writer-agentdefinition-api.opencollection.json:
     method: derived
     evidence: openapi/workday-report-writer-agentdefinition-api
@@ -77,6 +83,12 @@ artifacts:
   collections/workday-report-writer-wql.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  compliance/workday-report-writer-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  data-license/workday-report-writer-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   finops/workday-report-writer-finops.yml:
     method: generated
     evidence: declared in the artifact
@@ -89,7 +101,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -155,6 +167,9 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/v1.2.json:
     method: harvested
     evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
@@ -195,6 +210,9 @@ artifacts:
   openapi/workday-report-writer-tables-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/workday-report-writer-agentdefinition-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
   plans/workday-report-writer-plans-pricing.yml:
     method: generated
     evidence: declared in the artifact
@@ -222,6 +240,9 @@ artifacts:
   postman/workday-report-writer-tables-api.postman_collection.json:
     method: derived
     evidence: openapi/workday-report-writer-tables-api
+  privacy/workday-report-writer-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/workday-report-writer-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
@@ -236,4 +257,7 @@ artifacts:
     evidence: declared in the artifact
   sla/workday-report-writer-sla.yml:
     method: generated
+    evidence: declared in the artifact
+  terms/workday-report-writer-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
